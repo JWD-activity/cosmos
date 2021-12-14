@@ -4,9 +4,10 @@
   /* --bg-color: #1c262f;
   --bg-color--card: #0a0c11;
   --fs-color--primary: #eef3f9;
-  --fs-color--light: #fff;
+  
   --fs-color--grey: #9396a5; */
   --main-color: #aa26e9;
+  --fs-color--light: #fff;
   --border-radius--card: 0.25rem;
   --border-radius--btn: 3rem;
   --shadow--card: rgb(0 0 0 / 12%) 0px 2px 4px;
