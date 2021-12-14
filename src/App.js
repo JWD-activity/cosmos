@@ -7,6 +7,7 @@ import News from './screen/News/News';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
+import Footer from './components/Footer/Footer';
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           <Route path='news' element={<News />} />
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
