@@ -8,9 +8,9 @@
   --fs-color--grey: #9396a5; */
   --main-color: #aa26e9;
   --fs-color--light: #fff;
-  --border-radius--card: 0.25rem;
+  --border-radius--card: 1rem;
   --border-radius--btn: 3rem;
-  --shadow--card: rgb(0 0 0 / 12%) 0px 2px 4px;
+  --shadow--card: rgb(0 0 0 / 10%) 0px 3px 6px;
   --fs--body: 1.6rem;
   --fs--brand: 2.5rem;
   --fs--nav: 1.8rem;
@@ -30,6 +30,5 @@ body {
 }
 
 main {
-  min-height: 90vh;
-  position: relative;
+  min-height: 80vh;
 }

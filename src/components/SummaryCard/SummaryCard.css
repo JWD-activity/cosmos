@@ -1,0 +1,4 @@
+.summary-container {
+  border-radius: var(--border-radius--card);
+  box-shadow: var(--shadow--card);
+}

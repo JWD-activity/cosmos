@@ -1,0 +1,27 @@
+.img-container {
+  border: none;
+  border-radius: var(--border-radius--card);
+  box-shadow: var(--shadow--card);
+  overflow: hidden;
+  min-height: 38rem;
+}
+
+.bg-spacecraft,
+.bg-astronauts,
+.bg-news {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-spacecraft {
+  background-image: url(../../assets/spacex.jpg);
+}
+
+.bg-astronauts {
+  background-image: url(../../assets/astronaut.jpg);
+}
+
+.bg-news {
+  background-image: url(../../assets/news.jpg);
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Astronauts() {
-  return <div>Astronauts</div>;
+  return <main>Astronauts</main>;
 }
 
 export default Astronauts;
