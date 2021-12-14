@@ -1,0 +1,35 @@
+header {
+  font-size: var(--fs--nav);
+}
+
+.navbar-brand {
+  font-size: var(--fs--nav);
+}
+
+.navbar-brand svg {
+  vertical-align: text-bottom;
+  font-size: var(--fs--brand);
+  margin-right: 1rem;
+}
+
+.navbar {
+  padding: 1.5rem;
+}
+
+.nav-container a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--fs-color--light);
+  margin-left: 4rem;
+}
+
+.nav-container a:hover {
+  color: var(--main-color);
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    margin-top: 2rem;
+  }
+}

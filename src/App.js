@@ -1,36 +1,24 @@
 import './App.css';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 
+import Home from './screen/Home/Home';
+import Spacecraft from './screen/Spacecraft/Spacecraft';
+import Astronauts from './screen/Astronauts/Astronauts';
+import News from './screen/News/News';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
 function App() {
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='md'>
-        <Container>
-          <Navbar.Brand href='#'>COSMOS</Navbar.Brand>
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-          <Navbar.Collapse id='responsive-navbar-nav'>
-            <Nav className='ms-auto'>
-              <Nav.Item>
-                <Nav.Link eventKey='1' href='#/home'>
-                  Spacecraft
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey='2' title='Item'>
-                  Astronauts
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey='3' disabled>
-                  News
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='spacecraft' element={<Spacecraft />} />
+          <Route path='astronauts' element={<Astronauts />} />
+          <Route path='news' element={<News />} />
+        </Routes>
+      </Router>
     </>
   );
 }
