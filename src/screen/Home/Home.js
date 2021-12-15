@@ -33,8 +33,6 @@ function Home() {
             />
           </Col>
         </Row>
-
-        {/* <SummaryCard /> */}
       </Container>
     </main>
   );
