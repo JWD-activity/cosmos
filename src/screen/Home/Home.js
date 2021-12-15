@@ -12,13 +12,25 @@ function Home() {
       <Container className='home-container'>
         <Row>
           <Col lg={4} md={12} className='p-5'>
-            <ImgCard name='spacecraft' />
+            <ImgCard
+              name='spacecraft'
+              title='Spacecraft'
+              desc='Explore the spacecraft we use to stay in orbit.'
+            />
           </Col>
           <Col lg={4} md={12} className='p-5'>
-            <ImgCard name='astronauts' />
+            <ImgCard
+              name='astronauts'
+              title='Astronauts'
+              desc='Meet the exceptional people that have ventured into space.'
+            />
           </Col>
           <Col lg={4} md={12} className='p-5'>
-            <ImgCard name='news' />
+            <ImgCard
+              name='news'
+              title='News'
+              desc='Check the latest spaceflight-related news.'
+            />
           </Col>
         </Row>
 

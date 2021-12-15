@@ -6,10 +6,11 @@
   --fs-color--primary: #eef3f9;
   
   --fs-color--grey: #9396a5; */
+  --gradient: linear-gradient(135deg, #aa26e9 40%, #5151e5 100%);
   --main-color: #aa26e9;
   --fs-color--light: #fff;
   --border-radius--card: 1rem;
-  --border-radius--btn: 3rem;
+  --border-radius--btn: 0.25rem;
   --shadow--card: rgb(0 0 0 / 10%) 0px 3px 6px;
   --fs--body: 1.6rem;
   --fs--brand: 2.5rem;

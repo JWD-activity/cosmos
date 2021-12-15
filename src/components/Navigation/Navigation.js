@@ -24,9 +24,11 @@ function Navigation() {
     <header>
       <Navbar bg='dark' variant='dark' expand='md'>
         <Container>
-          <Navbar.Brand href='#'>
-            <BsHexagonHalf />
-            COSMOS
+          <Navbar.Brand>
+            <Link to='/'>
+              <BsHexagonHalf />
+              COSMOS
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>

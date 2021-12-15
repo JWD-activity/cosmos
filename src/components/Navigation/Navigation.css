@@ -16,6 +16,7 @@ header {
   padding: 1.5rem;
 }
 
+.navbar-brand a,
 .nav-container a {
   text-decoration: none;
   text-transform: capitalize;
