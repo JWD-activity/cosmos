@@ -21,6 +21,9 @@ header {
   text-decoration: none;
   text-transform: capitalize;
   color: var(--fs-color--light);
+}
+
+.nav-container a {
   margin-left: 4rem;
 }
 
