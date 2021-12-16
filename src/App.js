@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='spacecraft' element={<SpacecraftDetails />} />
-          {/* <Route path='spacecraft' element={<Spacecraft />} /> */}
+          {/* <Route path='spacecraft:Id' element={<Spacecraft />} /> */}
           <Route path='astronauts' element={<Astronauts />} />
           <Route path='news' element={<News />} />
         </Routes>

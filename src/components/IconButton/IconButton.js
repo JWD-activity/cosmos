@@ -1,7 +1,6 @@
 import React from 'react';
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
-import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 import './IconButton.css';
 
 function IconButton({ type }) {
