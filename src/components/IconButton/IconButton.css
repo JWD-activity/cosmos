@@ -1,0 +1,8 @@
+.btn-icon {
+  border: none;
+  background-color: transparent;
+  color: #000;
+  border-radius: var(--border-radius--btn);
+  font-size: 3rem;
+  padding: 0;
+}
