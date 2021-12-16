@@ -18,11 +18,11 @@ function Astronauts() {
             <h2>Meet the exceptional people that have ventured into space.</h2>
           </Col>
           <Col>
-            <Row className='my-4'>
-              <Col md={6} sm={12} className='mb-3'>
+            <Row className='my-3'>
+              <Col md={6} sm={12}>
                 <Search />
               </Col>
-              <Col md={6} sm={12} className=''>
+              <Col md={6} sm={12}>
                 <Filter />
               </Col>
             </Row>
@@ -30,22 +30,22 @@ function Astronauts() {
 
           <Col>
             <Row>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-2 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-2 my-4'>
                 <SummaryCard />
               </Col>
             </Row>

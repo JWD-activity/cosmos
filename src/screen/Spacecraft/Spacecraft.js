@@ -18,22 +18,22 @@ function Spacecraft() {
           </Col>
           <Col>
             <Row>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
                 <SummaryCard />
               </Col>
-              <Col lg={4} md={6} sm={12} className='px-2 my-5'>
+              <Col lg={4} md={6} sm={12} className='px-2 my-4'>
                 <SummaryCard />
               </Col>
             </Row>
