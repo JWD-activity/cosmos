@@ -1,8 +1,16 @@
 .btn-icon {
   border: none;
   background-color: transparent;
-  color: #000;
+  color: var(--dark-grey);
   border-radius: var(--border-radius--btn);
   font-size: 3rem;
   padding: 0;
+}
+
+.btn-goback {
+  background-color: var(--dark-grey);
+  border-radius: var(--border-radius--btn);
+  color: var(--fs-color--light);
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
 }
