@@ -1,4 +1,12 @@
 .summary-box {
   border-radius: var(--border-radius--card);
   box-shadow: var(--shadow--card);
+  overflow: hidden;
+  margin: 2rem;
+}
+
+.img--sm {
+  max-height: 15rem;
+  object-fit: cover;
+  object-position: center;
 }
