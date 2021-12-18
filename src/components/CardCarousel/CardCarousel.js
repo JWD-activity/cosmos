@@ -72,9 +72,7 @@ function CardCarousel() {
   return (
     <>
       {isLoading ? (
-        <Spinner animation='border' role='status' className='loading'>
-          <span className='visually-hidden'>Loading...</span>
-        </Spinner>
+        <Spinner animation='border' role='status' className='loading' />
       ) : (
         <>
           <Col className='pagenation text-center'>

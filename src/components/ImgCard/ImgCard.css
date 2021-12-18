@@ -39,6 +39,9 @@
   margin: 0 auto;
   max-width: 25rem;
 }
+.imgcard-content h1 {
+  text-transform: capitalize;
+}
 
 .bg-spacecraft,
 .bg-astronauts,

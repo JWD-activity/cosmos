@@ -1,12 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
 
-import { useSelector, useDispatch } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import './Spacecraft.css';
 
 function Spacecraft() {

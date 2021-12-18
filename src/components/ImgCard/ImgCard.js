@@ -8,7 +8,7 @@ function ImgCard({ name, title, desc, children }) {
   return (
     <Card className={`imgcard-container bg-${name} `}>
       <Card.Body className='imgcard-content'>
-        <h1>{title}</h1>
+        <h1>{name}</h1>
         <p>{desc}</p>
         <Button>EXPLORE</Button>
       </Card.Body>

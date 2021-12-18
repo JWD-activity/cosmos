@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { URL_BASE, GET_ALL_SPACECRAFT } from '../utils/config';
 
 const initialState = {
   isLoading: true,
@@ -10,10 +11,9 @@ const initialState = {
 export const fetchSpacecraft = createAsyncThunk(
   'spacecraft/fetchSpacecraft',
   async () => {
-    const response = await axios.get(
-      'https://lldev.thespacedevs.com/2.2.0/config/spacecraft/',
-      { params: { limit: 27 } }
-    );
+    const response = await axios.get(URL_BASE + GET_ALL_SPACECRAFT, {
+      params: { limit: 27 },
+    });
     return response.data;
   }
 );
