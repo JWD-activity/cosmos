@@ -2,7 +2,7 @@ import './App.css';
 
 import Home from './screen/Home/Home';
 import Spacecraft from './screen/Spacecraft/Spacecraft';
-// import SpacecraftDetails from './screen/SpacecraftDetails/SpacecraftDetails';
+import SpacecraftDetails from './screen/SpacecraftDetails/SpacecraftDetails';
 import Astronauts from './screen/Astronauts/Astronauts';
 import News from './screen/News/News';
 
@@ -16,8 +16,8 @@ function App() {
         <Navigation />
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='spacecraft' element={<SpacecraftDetails />} /> */}
           <Route path='spacecraft' element={<Spacecraft />} />
+          <Route path='spacecraft/:id' element={<SpacecraftDetails />} />
           <Route path='astronauts' element={<Astronauts />} />
           <Route path='news' element={<News />} />
         </Routes>
