@@ -1,20 +1,26 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { URL_BASE, GET_ALL_SPACECRAFT } from '../utils/config';
+import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
 const initialState = {
   isLoading: true,
-  spacecraft: {},
+  spacecraft: getLocalStorage('spacecraft') || {},
   error: '',
 };
 
 export const fetchSpacecraft = createAsyncThunk(
   'spacecraft/fetchSpacecraft',
   async () => {
-    const response = await axios.get(URL_BASE + GET_ALL_SPACECRAFT, {
-      params: { limit: 27 },
-    });
-    return response.data;
+    const hasLocalData = getLocalStorage('spacecraft');
+    if (hasLocalData) return hasLocalData;
+    else {
+      const response = await axios.get(URL_BASE + GET_ALL_SPACECRAFT, {
+        params: { limit: 27 },
+      });
+      setLocalStorage('spacecraft', response.data);
+      return response.data;
+    }
   }
 );
 

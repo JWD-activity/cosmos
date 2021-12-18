@@ -9,4 +9,8 @@ const store = configureStore({
   },
 });
 
+store.subscribe(() => {
+  console.log('State', store.getState().spacecraft);
+});
+
 export default store;

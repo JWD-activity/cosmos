@@ -13,4 +13,10 @@
   color: var(--fs-color--light);
   font-size: 1.6rem;
   padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn-goback svg {
+  margin-right: 0.5rem;
 }

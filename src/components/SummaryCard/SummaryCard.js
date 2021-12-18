@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 function SummaryCard({ content }) {
   const { image_url, name, id } = content;
-  console.log(content);
 
   return (
     <Link to={`/spacecraft/${id}`} className='summary-link'>

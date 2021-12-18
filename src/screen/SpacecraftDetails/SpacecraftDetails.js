@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpaceDetails } from '../../redux/spaceDetailSlice';
-import { useParams, Link } from 'react-router-dom';
+import { fetchSpacecraft } from '../../redux/spacecraftSlice.js';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+
+import { movePage, getCurrentIndex } from '../../utils/utils';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,9 +17,16 @@ import './SpacecraftDetails.css';
 
 function SpacecraftDetails() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState();
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(fetchSpacecraft());
+  }, []);
+
+  useEffect(() => {
+    // dispatch(fetchSpacecraft());
     dispatch(fetchSpaceDetails(id));
   }, [id]);
 
@@ -25,6 +35,18 @@ function SpacecraftDetails() {
   const data = useSelector(
     (state) => state.spacecraftDetails.spacecraftDetails
   );
+  const spacecraft = useSelector(
+    (state) => state.spacecraft.spacecraft.results
+  );
+
+  // const currentIndex = getCurrentIndex(spacecraft, +id);
+  // const currentPage = currentIndex + 1;
+  // const totalPage = spacecraft.length;
+
+  // const pageHandler = () => {
+  //   const currentIndex = getCurrentIndex(spacecraft, +id);
+  //   setCurrentIndex(currentIndex);
+  // };
 
   const generateBadge = () => {
     const { in_use, human_rated, crew_capacity } = data;
@@ -48,6 +70,20 @@ function SpacecraftDetails() {
       </div>
     );
   };
+  const onPrevClickHanlder = () => {
+    // pageHandler('prev');
+    const currentIndex = getCurrentIndex(spacecraft, +id);
+    const currentId = spacecraft[currentIndex - 1].id;
+    if (currentId) navigate(`/spacecraft/${currentId}`);
+    console.log('PREV', currentId, currentIndex);
+  };
+  const onNextClickHanlder = () => {
+    // pageHandler('next');
+    const currentIndex = getCurrentIndex(spacecraft, +id);
+    const currentId = spacecraft[currentIndex + 1].id;
+    if (currentId) navigate(`/spacecraft/${currentId}`);
+    console.log('NEXT', currentId, currentIndex);
+  };
 
   const generateInfo = () => {
     const { height, agency, flight_life } = data;
@@ -62,10 +98,12 @@ function SpacecraftDetails() {
 
   const generateContent = () => {
     const { name, details, image_url } = data;
-    console.log(details);
     return (
       <Row>
-        <Col className='col-btn text-start d-flex align-items-center'>
+        <Col
+          className='col-btn text-start d-flex align-items-center'
+          onClick={onPrevClickHanlder}
+        >
           <IconButton type='prev' />
         </Col>
 
@@ -89,7 +127,7 @@ function SpacecraftDetails() {
                       <h2>{name}</h2>
                       {generateBadge()}
                       {generateInfo()}
-                      <Row>
+                      <Row className='mt-4'>
                         <Link to='/spacecraft'>
                           <IconButton type='goback' />
                         </Link>
@@ -106,7 +144,10 @@ function SpacecraftDetails() {
           </Row>
         </Col>
 
-        <Col className='col-btn text-end d-flex align-items-center'>
+        <Col
+          className='col-btn text-end d-flex align-items-center'
+          onClick={onNextClickHanlder}
+        >
           <IconButton type='next' />
         </Col>
       </Row>
