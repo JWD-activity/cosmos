@@ -9,11 +9,11 @@ function SummaryCard({ content }) {
     console.log(id);
   };
   return (
-    <Card className='summary-box'>
+    <Card className='summary-box' onClick={onClickHanlder}>
       <Card.Img variant='top' src={image_url} alt={name} className='img--sm' />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Button clickHandler={onClickHanlder}>VIEW DETAILS</Button>
+        <Button>VIEW DETAILS</Button>
       </Card.Body>
     </Card>
   );
