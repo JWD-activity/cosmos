@@ -9,7 +9,7 @@ function SummaryCard({ content }) {
     <Card className='summary-box'>
       <Card.Img variant='top' src={image_url} alt={name} className='img--sm' />
       <Card.Body>
-        <Card.Text>{name}</Card.Text>
+        <Card.Title>{name}</Card.Title>
         <Button>VIEW DETAILS</Button>
       </Card.Body>
     </Card>

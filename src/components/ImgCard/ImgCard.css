@@ -28,10 +28,11 @@
   z-index: 2;
   color: var(--fs-color--light);
   height: 100%;
+  flex: none;
 }
 
-.imgcard-content {
-  flex: none;
+.imgcard-content button {
+  margin: 1rem 0;
 }
 
 .imgcard-content p {

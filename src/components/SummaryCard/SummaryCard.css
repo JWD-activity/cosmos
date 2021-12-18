@@ -3,6 +3,16 @@
   box-shadow: var(--shadow--card);
   overflow: hidden;
   margin: 3rem 0;
+  text-align: center;
+}
+
+.summary-box .card-title {
+  font-size: 1.6rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.summary-box button {
+  margin-bottom: 1rem;
 }
 
 .img--sm {
