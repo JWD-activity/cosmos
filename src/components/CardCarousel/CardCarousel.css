@@ -1,0 +1,32 @@
+.carousel {
+  margin-top: 1.5rem;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  top: -100%;
+  width: 0%;
+  padding: 2.5rem;
+}
+.carousel-control-prev {
+  left: 89%;
+}
+
+.pagenation {
+  position: absolute;
+  top: -10px;
+  left: 82%;
+  width: 8rem;
+  translate: translateX(0);
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 992px) {
+  .carousel-control-prev {
+    left: 0%;
+  }
+
+  .pagenation {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,12 +1,10 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import './SummaryCard.css';
 import Button from '../Button/Button';
+import './SummaryCard.css';
 
 function SummaryCard({ content }) {
-  const { name, image_url } = content;
+  const { image_url, name } = content;
   return (
     <Card className='summary-box'>
       <Card.Img variant='top' src={image_url} alt={name} className='img--sm' />

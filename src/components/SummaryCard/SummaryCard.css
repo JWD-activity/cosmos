@@ -2,11 +2,17 @@
   border-radius: var(--border-radius--card);
   box-shadow: var(--shadow--card);
   overflow: hidden;
-  margin: 2rem;
+  margin: 3rem 0;
 }
 
 .img--sm {
-  max-height: 15rem;
+  max-height: 13rem;
   object-fit: cover;
   object-position: center;
+}
+
+@media (max-width: 768px) {
+  .img--sm {
+    max-height: 20rem;
+  }
 }

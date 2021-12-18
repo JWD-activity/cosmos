@@ -14,6 +14,7 @@ header {
 
 .navbar {
   padding: 1.5rem;
+  z-index: 3;
 }
 
 .navbar-brand a,

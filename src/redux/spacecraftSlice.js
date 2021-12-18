@@ -12,7 +12,7 @@ export const fetchSpacecraft = createAsyncThunk(
   async () => {
     const response = await axios.get(
       'https://lldev.thespacedevs.com/2.2.0/config/spacecraft/',
-      { params: { limit: 6 } }
+      { params: { limit: 27 } }
     );
     return response.data;
   }
