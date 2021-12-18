@@ -29,7 +29,6 @@ function CardCarousel() {
 
   useEffect(() => {
     if (spacecraft) {
-      console.log('Effect', spacecraft);
       displayCarouselItem();
     }
   }, [spacecraft]);
@@ -42,7 +41,6 @@ function CardCarousel() {
   const generateCarousel = (pageNum) => {
     const { start, end } = buildPage(pageNum, numPerPage);
     const data = spacecraft.slice(start, end);
-    console.log(start, end, pageNum);
 
     return (
       <Carousel.Item key={pageNum}>
@@ -64,17 +62,15 @@ function CardCarousel() {
     for (let i = 0; i < total; i++) {
       content.push(generateCarousel(i + 1));
     }
-
     setContents(content);
   };
 
-  const handleSelect = (selectedIndex) => {
+  const handleSelect = (selectedIndex, ev) => {
     setIndex(selectedIndex);
   };
 
   return (
     <>
-      {console.log('INDEX', index)}
       {isLoading ? (
         <Spinner animation='border' role='status' className='loading'>
           <span className='visually-hidden'>Loading...</span>

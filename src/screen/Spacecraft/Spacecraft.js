@@ -2,12 +2,16 @@ import React from 'react';
 
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 
+import { useSelector, useDispatch } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import './Spacecraft.css';
 
 function Spacecraft() {
+  const error = useSelector((state) => state.spacecraft.error);
+
   return (
     <main className='position-relative'>
       <Container className='spacecraft-container py-3'>
@@ -18,7 +22,11 @@ function Spacecraft() {
           </Col>
           <Col>
             <Row className='position-relative'>
-              <CardCarousel />
+              {error ? (
+                <MessageAlert type='error' message={error} />
+              ) : (
+                <CardCarousel />
+              )}
             </Row>
           </Col>
         </Row>
