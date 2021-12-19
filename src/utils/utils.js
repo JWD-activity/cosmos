@@ -48,3 +48,10 @@ export const navigateDetailPage = (goto, data, id) => {
 export const getCurrentIndex = (data, id) => {
   return data.findIndex((item) => item.id === +id);
 };
+
+export const checkButtonTarget = (target) => {
+  const element = target.nodeName;
+  if (element === 'BUTTON' || element === 'path' || element === 'svg')
+    return true;
+  else return false;
+};

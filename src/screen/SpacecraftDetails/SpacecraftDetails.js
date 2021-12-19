@@ -3,7 +3,11 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpaceDetails } from '../../redux/spaceDetailSlice';
 import { fetchSpacecraft } from '../../redux/spacecraftSlice.js';
-import { navigateDetailPage, getCurrentIndex } from '../../utils/utils';
+import {
+  navigateDetailPage,
+  getCurrentIndex,
+  checkButtonTarget,
+} from '../../utils/utils';
 
 import IconButton from '../../components/IconButton/IconButton';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
@@ -62,14 +66,18 @@ function SpacecraftDetails() {
       </div>
     );
   };
-  const onPrevClickHanlder = () => {
-    const { selectedId } = navigateDetailPage('prev', spacecraft, id);
-    if (selectedId) navigate(`/spacecraft/${selectedId}`);
+  const onPrevClickHanlder = (ev) => {
+    if (checkButtonTarget(ev.target)) {
+      const { selectedId } = navigateDetailPage('prev', spacecraft, id);
+      if (selectedId) navigate(`/spacecraft/${selectedId}`);
+    }
   };
 
-  const onNextClickHanlder = () => {
-    const { selectedId } = navigateDetailPage('next', spacecraft, id);
-    if (selectedId) navigate(`/spacecraft/${selectedId}`);
+  const onNextClickHanlder = (ev) => {
+    if (checkButtonTarget(ev.target)) {
+      const { selectedId } = navigateDetailPage('next', spacecraft, id);
+      if (selectedId) navigate(`/spacecraft/${selectedId}`);
+    }
   };
 
   const generateInfo = () => {
@@ -88,12 +96,11 @@ function SpacecraftDetails() {
     return (
       <>
         <Row className='spacecraft-details'>
-          <Col className='col-btn text-start d-flex align-items-center'>
-            {currentPage > 1 ? (
-              <IconButton type='prev' onClick={onPrevClickHanlder} />
-            ) : (
-              ''
-            )}
+          <Col
+            className='col-btn text-start d-flex align-items-center'
+            onClick={onPrevClickHanlder}
+          >
+            {currentPage > 1 ? <IconButton type='prev' /> : ''}
           </Col>
 
           <Col>
@@ -137,10 +144,11 @@ function SpacecraftDetails() {
             </Row>
           </Col>
 
-          <Col className='col-btn text-end d-flex align-items-center'>
-            {currentPage < totalPage && (
-              <IconButton type='next' onClick={onNextClickHanlder} />
-            )}
+          <Col
+            className='col-btn text-end d-flex align-items-center'
+            onClick={onNextClickHanlder}
+          >
+            {currentPage < totalPage && <IconButton type='next' />}
           </Col>
         </Row>
       </>
