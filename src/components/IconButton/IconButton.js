@@ -6,6 +6,10 @@ import './IconButton.css';
 
 function IconButton({ type }) {
   let icon;
+  const onClickHandler = () => {
+    console.log('clik');
+  };
+
   if (type === 'next') icon = <BsFillArrowRightSquareFill />;
   if (type === 'prev') icon = <BsFillArrowLeftSquareFill />;
   if (type === 'goback')

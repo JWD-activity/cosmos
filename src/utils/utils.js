@@ -25,23 +25,26 @@ export const getLocalStorage = (storageName) => {
   else return false;
 };
 
-// Move page
-export const movePage = (goto, page, totalPage, results, index) => {
-  let currentId;
+// Controll navigation of detail page
+export const navigateDetailPage = (goto, data, id) => {
+  let selectedId;
+  const totalPage = data.length;
+  const index = getCurrentIndex(data, id);
+  const currentPage = index + 1;
 
   if (goto === 'next') {
-    if (page < totalPage) currentId = results.data[index + 1].id;
-    else return;
+    if (currentPage < totalPage) selectedId = data[index + 1].id;
+    else return { selectedId: id };
   }
   if (goto === 'prev') {
-    if (page > 1) currentId = results.data[index - 1].id;
-    else return;
+    if (currentPage > 1) selectedId = data[index - 1].id;
+    else return { selectedId: id };
   }
 
-  return currentId;
+  return { selectedId };
 };
 
 // Find index of current item
 export const getCurrentIndex = (data, id) => {
-  return data.findIndex((item) => item.id === id);
+  return data.findIndex((item) => item.id === +id);
 };

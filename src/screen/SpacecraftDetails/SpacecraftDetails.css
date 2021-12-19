@@ -1,3 +1,8 @@
+.spacecraft-details {
+  max-height: 50rem;
+  overflow: auto;
+}
+
 .img-lg {
   width: 100%;
   max-height: 25rem;
@@ -13,3 +18,15 @@
   max-width: 3.5rem;
   padding: 0;
 }
+
+.page {
+  text-align: center;
+  background-color: var(--light-grey);
+  border-radius: var(--border-radius--btn);
+}
+
+/* flex-direction: column;
+  gap: 1.5rem;
+  padding: 3.5rem 0;
+  max-height: 65rem;
+  overflow: auto; */
