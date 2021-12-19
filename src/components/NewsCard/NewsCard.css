@@ -2,3 +2,9 @@
   border-radius: var(--border-radius--card);
   box-shadow: var(--shadow--card);
 }
+.news-img--box {
+}
+.news-img {
+  max-height: 10rem;
+  object-fit: contain;
+}

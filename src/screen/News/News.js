@@ -6,17 +6,26 @@ import NewsCard from '../../components/NewsCard/NewsCard';
 import Filter from '../../components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/newsSlice';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
+import Spinner from 'react-bootstrap/Spinner';
 
 function News() {
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.astronauts.error);
-  const isLoading = useSelector((state) => state.astronauts.isLoading);
-  const news = useSelector((state) => state.news);
-  console.log(news);
+  const error = useSelector((state) => state.news.error);
+  const isLoading = useSelector((state) => state.news.isLoading);
+  const news = useSelector((state) => state.news.news);
+  console.log(news, error, isLoading);
 
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
+
+  const generateNews = () => {
+    // console.log(news);
+    return news.map((content) => {
+      return <NewsCard key={content.id} content={content} />;
+    });
+  };
   return (
     <>
       <Row className='my-3 pt-4'>
@@ -28,10 +37,13 @@ function News() {
         </Col>
       </Row>
       <Row className='px-2'>
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        {error ? (
+          <MessageAlert type='error' message={error} />
+        ) : isLoading ? (
+          <Spinner animation='border' role='status' className='loading' />
+        ) : (
+          generateNews()
+        )}
       </Row>
     </>
   );
