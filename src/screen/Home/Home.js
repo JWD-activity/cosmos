@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import ImgCard from '../../components/ImgCard/ImgCard.js';
-
-import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+
 import './Home.css';
 
 const contents = [
@@ -40,13 +39,7 @@ function Home() {
     });
   };
 
-  return (
-    <main className='position-relative'>
-      <Container className='home-container'>
-        <Row>{generateContent()}</Row>
-      </Container>
-    </main>
-  );
+  return <Row>{generateContent()}</Row>;
 }
 
 export default Home;

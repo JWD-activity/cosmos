@@ -4,11 +4,10 @@ import { fetchSpacecraft } from '../../redux/spacecraftSlice';
 
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
-
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
+
 import './Spacecraft.css';
 
 function Spacecraft() {
@@ -24,27 +23,23 @@ function Spacecraft() {
   }, []);
 
   return (
-    <main className='position-relative'>
-      <Container className='spacecraft-container py-3'>
-        <Row className='flex-column pt-5'>
-          <Col className='spacecraft-heading'>
-            <h1>Spacecraft</h1>
-            <h2>Explore the spacecraft we use to stay in orbit.</h2>
-          </Col>
-          <Col>
-            <Row className='position-relative'>
-              {error ? (
-                <MessageAlert type='error' message={error} />
-              ) : isLoading ? (
-                <Spinner animation='border' role='status' className='loading' />
-              ) : (
-                <CardCarousel data={spacecraft} numPerPage={4} />
-              )}
-            </Row>
-          </Col>
+    <Row className='flex-column pt-5'>
+      <Col className='spacecraft-heading'>
+        <h1>Spacecraft</h1>
+        <h2>Explore the spacecraft we use to stay in orbit.</h2>
+      </Col>
+      <Col>
+        <Row className='position-relative'>
+          {error ? (
+            <MessageAlert type='error' message={error} />
+          ) : isLoading ? (
+            <Spinner animation='border' role='status' className='loading' />
+          ) : (
+            <CardCarousel data={spacecraft} numPerPage={4} />
+          )}
         </Row>
-      </Container>
-    </main>
+      </Col>
+    </Row>
   );
 }
 

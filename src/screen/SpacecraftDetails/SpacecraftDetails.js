@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSpaceDetails } from '../../redux/spaceDetailSlice';
 import { fetchSpacecraft } from '../../redux/spacecraftSlice.js';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { getCurrentIndex } from '../../utils/utils';
 
-import { movePage, getCurrentIndex } from '../../utils/utils';
-import Container from 'react-bootstrap/Container';
+import IconButton from '../../components/IconButton/IconButton';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Image from 'react-bootstrap/Image';
-import IconButton from '../../components/IconButton/IconButton';
-import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Spinner from 'react-bootstrap/Spinner';
+
 import './SpacecraftDetails.css';
 
 function SpacecraftDetails() {
@@ -149,15 +149,13 @@ function SpacecraftDetails() {
   };
 
   return (
-    <main className='position-relative'>
-      <Container className='spaceDetails-container'>
-        {error ? (
-          <MessageAlert type='error' message={error} />
-        ) : (
-          generateContent()
-        )}
-      </Container>
-    </main>
+    <>
+      {error ? (
+        <MessageAlert type='error' message={error} />
+      ) : (
+        generateContent()
+      )}
+    </>
   );
 }
 

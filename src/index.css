@@ -30,7 +30,3 @@ body {
   height: 100vh;
   font-size: var(--fs--body);
 }
-
-main {
-  min-height: 80vh;
-}
