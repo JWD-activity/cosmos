@@ -4,24 +4,28 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from '../Button/Button';
-
+import Badge from 'react-bootstrap/Badge';
 import './NewsCard.css';
 
 function NewsCard({ content }) {
-  const { imageUrl, title } = content;
+  const { imageUrl, title, newsSite, updatedAt } = content;
+  let updatedDate = new Date(updatedAt).toLocaleString();
+
   return (
     <Card className='news-box my-3'>
-      <Card.Img variant='top' src={imageUrl} alt={title} className='news-img' />
-      {/* <Row>
-        <Col md={3} sm={12} className='news-img--box'>
-          <img src={imageUrl} alt={title} className='news-img' />
+      <Row>
+        <Col md={3} sm={12} className='img-box--news'>
+          <img src={imageUrl} alt={title} className='img-sm--news' />
         </Col>
-        <Col md={9} sm={12}>
-          {' '}
-          {title}
+        <Col md={9} sm={12} className='info-box--news'>
+          <Card.Title>{title}</Card.Title>
+          <Card.Subtitle>
+            <span>{newsSite}</span>
+            <span className='updated'>{updatedDate}</span>
+          </Card.Subtitle>
           <Button>READ MORE</Button>
         </Col>
-      </Row> */}
+      </Row>
     </Card>
   );
 }

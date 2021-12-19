@@ -1,10 +1,38 @@
 .news-box {
   border-radius: var(--border-radius--card);
   box-shadow: var(--shadow--card);
+  overflow: hidden;
 }
-.news-img--box {
+
+.img-box--news {
+  padding: 0;
 }
-.news-img {
-  max-height: 10rem;
-  object-fit: contain;
+
+.img-sm--news {
+  height: 15rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.info-box--news {
+  padding: 1.5rem 1rem;
+}
+
+.info-box--news * {
+  font-size: inherit;
+}
+
+.info-box--news .card-title {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.info-box--news .card-subtitle {
+  margin: 1rem 0;
+}
+
+.updated {
+  font-weight: var(--fw--light);
+  margin: 1rem;
 }
