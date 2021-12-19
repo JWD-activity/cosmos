@@ -2,18 +2,24 @@ import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import SummaryCard from '../../components/SummaryCard/SummaryCard';
+// import SummaryCard from '../../components/SummaryCard/SummaryCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronauts } from '../../redux/astronautSlice';
 import './Astronauts.css';
 import Search from '../../components/Search/Search';
 import Filter from '../../components/Filter/Filter';
-
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
+import Spinner from 'react-bootstrap/Spinner';
+import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 function Astronauts() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.astronauts.error);
   const isLoading = useSelector((state) => state.astronauts.isLoading);
-  const astronauts = useSelector((state) => state.astronauts);
+  const astronauts = useSelector(
+    (state) => state.astronauts.astronauts.results
+  );
+
+  console.log(astronauts);
 
   useEffect(() => {
     dispatch(fetchAstronauts());
@@ -21,7 +27,7 @@ function Astronauts() {
 
   return (
     <Row className='flex-column'>
-      <Col>
+      <Col className='astronauts-heading'>
         <h1>Astronauts</h1>
         <h2>Meet the exceptional people that have ventured into space.</h2>
       </Col>
@@ -33,6 +39,21 @@ function Astronauts() {
           <Col md={6} sm={12}>
             <Filter />
           </Col>
+        </Row>
+      </Col>
+      <Col>
+        <Row className='position-relative'>
+          {error ? (
+            <MessageAlert type='error' message={error} />
+          ) : isLoading ? (
+            <Spinner animation='border' role='status' className='loading' />
+          ) : (
+            <CardCarousel
+              data={astronauts}
+              numPerPage={8}
+              section='astronauts'
+            />
+          )}
         </Row>
       </Col>
       {/*

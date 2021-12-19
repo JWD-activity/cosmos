@@ -35,7 +35,11 @@ function Spacecraft() {
           ) : isLoading ? (
             <Spinner animation='border' role='status' className='loading' />
           ) : (
-            <CardCarousel data={spacecraft} numPerPage={4} />
+            <CardCarousel
+              data={spacecraft}
+              numPerPage={4}
+              section='spacecraft'
+            />
           )}
         </Row>
       </Col>

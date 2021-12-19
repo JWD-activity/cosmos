@@ -1,20 +1,20 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from '../Button/Button';
-import './SummaryCard.css';
+import './CardAstronauts.css';
 import { Link } from 'react-router-dom';
 
-function SummaryCard({ content }) {
-  const { image_url, name, id } = content;
-
+function CardAstronauts({ content }) {
+  console.log(content);
+  const { profile_image_thumbnail: image_url, name, id } = content;
   return (
-    <Link to={`/spacecraft/${id}`} className='summary-link'>
-      <Card className='summary-card'>
+    <Link to={`/astronauts/${id}`} className='summary-link--astronauts'>
+      <Card className='summary-card--astronauts'>
         <Card.Img
           variant='top'
           src={image_url}
           alt={name}
-          className='img--sm'
+          className='img-sm--astronauts'
         />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -25,4 +25,4 @@ function SummaryCard({ content }) {
   );
 }
 
-export default SummaryCard;
+export default CardAstronauts;

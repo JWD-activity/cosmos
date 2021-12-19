@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { buildPage } from '../../utils/utils';
 
-import SummaryCard from '../SummaryCard/SummaryCard';
+import CardSpacecraft from '../CardSpacecraft/CardSpacecraft';
 import IconButton from '../IconButton/IconButton';
 import Carousel from 'react-bootstrap/Carousel';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import './CardCarousel.css';
+import CardAstronauts from '../CardAstronauts/CardAstronauts';
 
-function CardCarousel({ data, numPerPage }) {
+function CardCarousel({ data, numPerPage, section }) {
   const [index, setIndex] = useState(0);
   const [contents, setContents] = useState([]);
 
@@ -33,7 +34,11 @@ function CardCarousel({ data, numPerPage }) {
           {result.map((content) => {
             return (
               <Col lg={3} md={6} sm={12} key={content.id}>
-                <SummaryCard content={content} />
+                {section === 'spacecraft' ? (
+                  <CardSpacecraft content={content} />
+                ) : (
+                  <CardAstronauts content={content} />
+                )}
               </Col>
             );
           })}

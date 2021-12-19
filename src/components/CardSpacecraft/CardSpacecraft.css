@@ -1,0 +1,40 @@
+.summary-link--spacecraft,
+.summary-link--spacecraft:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.summary-card--spacecraft {
+  border-radius: var(--border-radius--card);
+  box-shadow: var(--shadow--card);
+  overflow: hidden;
+  margin: 3rem 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.summary-card--spacecraft:hover {
+  box-shadow: 0 5px 15px rgb(0 0 0 / 25%);
+  transition: all 0.3s;
+}
+
+.summary-card--spacecraft .card-title {
+  font-size: 1.6rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.summary-card--spacecraft button {
+  margin-bottom: 1rem;
+}
+
+.img-sm--spacecraft {
+  max-height: 13rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .img-sm--spacecraft {
+    max-height: 20rem;
+  }
+}

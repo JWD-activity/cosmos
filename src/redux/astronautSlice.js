@@ -16,7 +16,7 @@ export const fetchAstronauts = createAsyncThunk(
     if (hasLocalData) return hasLocalData;
     else {
       const response = await axios.get(URL_BASE + GET_ALL_ASTRONAUT, {
-        params: { limit: 9 },
+        params: { limit: 100 },
       });
       setLocalStorage('astronauts', response.data);
       return response.data;
@@ -35,7 +35,7 @@ export const astronautSlice = createSlice({
       })
       .addCase(fetchAstronauts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.spacecraft = action.payload;
+        state.astronauts = action.payload;
       })
       .addCase(fetchAstronauts.rejected, (state, action) => {
         state.isLoading = false;
