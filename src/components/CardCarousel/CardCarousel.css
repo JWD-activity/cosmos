@@ -10,25 +10,19 @@
   padding: 2.5rem;
 }
 .carousel-control-prev {
-  left: 92%;
+  left: 0%;
 }
 
 .pagenation {
   position: absolute;
-  top: -10px;
-  left: 86%;
-  width: 8rem;
-  translate: translateX(0);
-  padding: 1.5rem 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--light-grey);
+  border-radius: 2rem;
+  width: 10rem;
+  padding: 0.5rem 1rem;
 }
 
-@media (max-width: 992px) {
-  .carousel-control-prev {
-    left: 0%;
-  }
-
-  .pagenation {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.carousel-inner {
+  margin-top: 1rem;
 }

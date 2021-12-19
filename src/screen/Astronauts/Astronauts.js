@@ -32,7 +32,7 @@ function Astronauts() {
         <h2>Meet the exceptional people that have ventured into space.</h2>
       </Col>
       <Col>
-        <Row className='my-3'>
+        <Row className='my-5'>
           <Col md={6} sm={12}>
             <Search />
           </Col>

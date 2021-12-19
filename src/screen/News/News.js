@@ -21,7 +21,6 @@ function News() {
   }, []);
 
   const generateNews = () => {
-    // console.log(news);
     return news.map((content) => {
       return <NewsCard key={content.id} content={content} />;
     });

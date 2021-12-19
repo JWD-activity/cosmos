@@ -3,7 +3,7 @@ import axios from 'axios';
 import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   news: getLocalStorage('news') || {},
   error: '',
 };
