@@ -11,6 +11,7 @@
   margin: 2rem 0;
   text-align: center;
   cursor: pointer;
+  min-height: 35rem;
 }
 
 .summary-card--astronauts:hover {
@@ -20,11 +21,11 @@
 
 .summary-card--astronauts .card-title {
   font-size: 1.6rem;
-  margin: 0 0 1.5rem 0;
+  /* margin: 0 0 1.5rem 0; */
 }
 
 .summary-card--astronauts button {
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .img-sm--astronauts {

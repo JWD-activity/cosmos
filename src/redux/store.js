@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import spacecraftReducer from './spacecraftSlice';
 import spaceDetailReducer from './spaceDetailSlice';
 import astronautsReducer from './astronautSlice';
+import astroDetailReducer from './astronautDetailSlice';
 import newsReducer from './newsSlice';
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
     spacecraft: spacecraftReducer,
     spacecraftDetails: spaceDetailReducer,
     astronauts: astronautsReducer,
+    astronautDetails: astroDetailReducer,
     news: newsReducer,
   },
 });
