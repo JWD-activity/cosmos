@@ -10,13 +10,13 @@
   padding: 2.5rem;
 }
 .carousel-control-prev {
-  left: 89%;
+  left: 92%;
 }
 
 .pagenation {
   position: absolute;
   top: -10px;
-  left: 82%;
+  left: 86%;
   width: 8rem;
   translate: translateX(0);
   padding: 1.5rem 0;

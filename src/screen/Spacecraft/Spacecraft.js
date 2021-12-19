@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchSpacecraft } from '../../redux/spacecraftSlice';
 
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
@@ -7,10 +8,20 @@ import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 import './Spacecraft.css';
 
 function Spacecraft() {
+  const dispatch = useDispatch();
   const error = useSelector((state) => state.spacecraft.error);
+  const isLoading = useSelector((state) => state.spacecraft.isLoading);
+  const spacecraft = useSelector(
+    (state) => state.spacecraft.spacecraft.results
+  );
+
+  useEffect(() => {
+    dispatch(fetchSpacecraft());
+  }, []);
 
   return (
     <main className='position-relative'>
@@ -24,8 +35,10 @@ function Spacecraft() {
             <Row className='position-relative'>
               {error ? (
                 <MessageAlert type='error' message={error} />
+              ) : isLoading ? (
+                <Spinner animation='border' role='status' className='loading' />
               ) : (
-                <CardCarousel />
+                <CardCarousel data={spacecraft} numPerPage={4} />
               )}
             </Row>
           </Col>

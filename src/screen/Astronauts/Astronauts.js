@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SummaryCard from '../../components/SummaryCard/SummaryCard';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAstronauts } from '../../redux/astronautSlice';
 import './Astronauts.css';
 import Search from '../../components/Search/Search';
 import Filter from '../../components/Filter/Filter';
 
 function Astronauts() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAstronauts());
+  }, []);
+
+  const error = useSelector((state) => state.astronauts.error);
+  const isLoading = useSelector((state) => state.astronauts.isLoading);
+  const astronauts = useSelector((state) => state.astronauts);
+
   return (
     <main className='position-relative'>
       <Container className='astronauts-container'>
@@ -27,7 +38,7 @@ function Astronauts() {
               </Col>
             </Row>
           </Col>
-
+          {/*
           <Col>
             <Row>
               <Col lg={4} md={6} sm={12} className='px-3 my-4'>
@@ -49,7 +60,7 @@ function Astronauts() {
                 <SummaryCard />
               </Col>
             </Row>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </main>

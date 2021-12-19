@@ -39,15 +39,6 @@ function SpacecraftDetails() {
     (state) => state.spacecraft.spacecraft.results
   );
 
-  // const currentIndex = getCurrentIndex(spacecraft, +id);
-  // const currentPage = currentIndex + 1;
-  // const totalPage = spacecraft.length;
-
-  // const pageHandler = () => {
-  //   const currentIndex = getCurrentIndex(spacecraft, +id);
-  //   setCurrentIndex(currentIndex);
-  // };
-
   const generateBadge = () => {
     const { in_use, human_rated, crew_capacity } = data;
     return (
@@ -138,6 +129,9 @@ function SpacecraftDetails() {
 
                 <Col>
                   <p>{details}</p>
+                </Col>
+                <Col>
+                  <p className='text-center'>1 / 3</p>
                 </Col>
               </>
             )}

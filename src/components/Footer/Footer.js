@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { BsHexagonHalf } from 'react-icons/bs';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
 function Footer() {
