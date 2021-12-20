@@ -31,6 +31,10 @@ function Astronauts() {
     getFinalData();
   }, [astronauts, selectedOption, query]);
 
+  const onSubmitHander = (query) => {
+    setQuery(query);
+  };
+
   const getFinalData = () => {
     let results;
     if (selectedOption === 'default') {
@@ -52,10 +56,6 @@ function Astronauts() {
 
     setFinalResults(results);
     localStorage.setItem('finalResults', JSON.stringify(results));
-  };
-
-  const onSubmitHander = (query) => {
-    setQuery(query);
   };
 
   return (
@@ -86,7 +86,7 @@ function Astronauts() {
             ) : (
               ''
             )}
-            {!isLoading && finalResults.length === 0 ? (
+            {!isLoading && query && finalResults.length === 0 ? (
               <MessageAlert type='error' message='Sorry No results found.' />
             ) : (
               ''
