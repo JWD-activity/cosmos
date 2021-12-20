@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import { PUBLIC } from './utils/config';
 import Home from './screen/Home/Home';
 import Spacecraft from './screen/Spacecraft/Spacecraft';
 import SpacecraftDetails from './screen/SpacecraftDetails/SpacecraftDetails';
@@ -18,8 +19,11 @@ function App() {
         <Navigation />
         <Main>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='spacecraft' element={<Spacecraft />} />
+            <Route path={PUBLIC + '/'} element={<Home />} />
+            <Route
+              path={process.env.PUBLIC_URL + 'spacecraft'}
+              element={<Spacecraft />}
+            />
             <Route path='spacecraft/:id' element={<SpacecraftDetails />} />
             <Route path='astronauts' element={<Astronauts />} />
             <Route path='astronauts/:id' element={<AstronautDetails />} />
