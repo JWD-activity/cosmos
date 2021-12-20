@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import ImgCard from '../../components/ImgCard/ImgCard.js';
 import Col from 'react-bootstrap/Col';
@@ -31,9 +31,12 @@ function Home() {
       const { name, desc, id } = content;
       return (
         <Col lg={4} md={12} className='p-5' key={id}>
-          <Link to={`/${name}`}>
+          <NavLink
+            to={`/${name}`}
+            className={({ isActive }) => (isActive ? 'active-menu' : '')}
+          >
             <ImgCard name={name} desc={desc} />
-          </Link>
+          </NavLink>
         </Col>
       );
     });

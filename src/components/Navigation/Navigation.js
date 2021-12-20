@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { BsHexagonHalf } from 'react-icons/bs';
 import Navbar from 'react-bootstrap/Navbar';
@@ -15,7 +15,12 @@ function Navigation() {
     return menu.map((name, index) => {
       return (
         <Nav.Item key={index}>
-          <Link to={`/${name}`}>{name}</Link>
+          <NavLink
+            to={`/${name}`}
+            className={({ isActive }) => (isActive ? 'active-menu' : '')}
+          >
+            {name}
+          </NavLink>
         </Nav.Item>
       );
     });
@@ -26,10 +31,13 @@ function Navigation() {
       <Navbar bg='dark' variant='dark' expand='md'>
         <Container>
           <Navbar.Brand>
-            <Link to='/'>
+            <NavLink
+              to='/'
+              className={({ isActive }) => (isActive ? 'active-menu' : '')}
+            >
               <BsHexagonHalf />
               COSMOS
-            </Link>
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>

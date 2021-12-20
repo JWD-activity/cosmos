@@ -3,6 +3,7 @@
 :root {
   --gradient: linear-gradient(135deg, #aa26e9 40%, #5151e5 100%);
   --main-color: #aa26e9;
+  --active-color: #daa2f5;
   --dark-grey: #212529;
   --light-grey: #f7f7f7;
   --fs-color--light: #fff;

@@ -29,8 +29,12 @@ header {
 }
 
 .nav-container a:hover {
-  color: var(--main-color);
+  color: var(--active-color);
   transition: all 0.3s;
+}
+
+.nav-container a.active-menu {
+  color: var(--active-color);
 }
 
 @media (max-width: 768px) {
