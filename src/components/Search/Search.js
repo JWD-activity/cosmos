@@ -15,7 +15,9 @@ function Search({ onSubmitHandler }) {
   const submitHandler = (ev) => {
     ev.preventDefault();
     if (searchText.trim()) onSubmitHandler(searchText);
+  };
 
+  const onClearHandler = () => {
     setSearchText('');
   };
 
@@ -34,7 +36,7 @@ function Search({ onSubmitHandler }) {
           value={searchText}
         />
 
-        <InputGroup.Text>
+        <InputGroup.Text onClick={onClearHandler} className='clear--search'>
           <BsFillXCircleFill />
         </InputGroup.Text>
       </InputGroup>

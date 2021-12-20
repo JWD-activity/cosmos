@@ -19,25 +19,34 @@ function Astronauts() {
   const isLoading = useSelector((state) => state.astronauts.isLoading);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
   const [selectedOption, setSelectedOption] = useState('default');
-  const [results, setResults] = useState([]);
+  const [filterResults, setFilterResults] = useState([]);
+  const [finalResults, setFinalResults] = useState([]);
   const [query, setQuery] = useState('');
   const selectRef = useRef(null);
-
-  useEffect(() => {
-    setResults(astronautsFilter(astronauts, selectedOption));
-  }, [selectedOption, astronauts]);
 
   useEffect(() => {
     dispatch(fetchAstronauts());
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('filterResults', JSON.stringify(results));
-  }, [results, results.length]);
+    setFilterResults(astronautsFilter(astronauts, selectedOption));
+  }, [selectedOption]);
 
   useEffect(() => {
-    searchFilter();
+    localStorage.setItem('filterResults', JSON.stringify(filterResults));
+  }, [filterResults, filterResults.length]);
+
+  useEffect(() => {
+    getFinalData();
   }, [query]);
+
+  const getFinalData = () => {
+    let results;
+    if (selectedOption === 'default') results = searchFilter(astronauts, query);
+    else results = searchFilter(filterResults, query);
+
+    setFinalResults(results);
+  };
 
   const onSubmitHander = (query) => {
     setQuery(query);
@@ -73,7 +82,8 @@ function Astronauts() {
             <Spinner animation='border' role='status' className='loading' />
           ) : (
             <CardCarousel
-              data={selectedOption === 'default' ? astronauts : results}
+              data={finalResults}
+              // data={selectedOption === 'default' ? astronauts : filterResults}
               numPerPage={8}
               section='astronauts'
             />

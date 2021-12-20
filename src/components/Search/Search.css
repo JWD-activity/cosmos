@@ -2,6 +2,10 @@
   font-size: 1.6rem;
 }
 
+.clear--search {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .search {
     margin-bottom: 1rem;
