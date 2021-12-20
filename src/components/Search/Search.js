@@ -10,7 +10,7 @@ import './Search.css';
 function Search({ onQueryHandler }) {
   const [searchText, setSearchText] = useState('');
   const changeHandler = (ev) => {
-    if (ev.target.value.trim()) onQueryHandler('');
+    if (!ev.target.value.trim()) onQueryHandler('');
     setSearchText(ev.target.value);
   };
 
