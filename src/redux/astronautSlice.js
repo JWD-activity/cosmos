@@ -18,7 +18,7 @@ export const fetchAstronauts = createAsyncThunk(
       const response = await axios.get(URL_BASE + GET_ALL_ASTRONAUT, {
         params: { limit: 100 },
       });
-      setLocalStorage('astronauts', response.data);
+      setLocalStorage('astronauts', response.data.results);
       return response.data;
     }
   }

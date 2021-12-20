@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,20 +8,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/newsSlice';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Spinner from 'react-bootstrap/Spinner';
+import { NEWS_SITE } from '../../utils/config';
+import { newsFilter } from '../../utils/utils';
 
 function News() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.news.error);
   const isLoading = useSelector((state) => state.news.isLoading);
   const news = useSelector((state) => state.news.news);
-  console.log(news, error, isLoading);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
 
-  const generateNews = () => {
-    return news.map((content) => {
+  useEffect(() => {
+    setResults(newsFilter(news, selectedOption));
+  }, [selectedOption, news.length]);
+
+  const generateNews = (data) => {
+    return data.map((content) => {
       return <CardNews key={content.id} content={content} />;
     });
   };
@@ -32,7 +39,11 @@ function News() {
         <h2>Check the latest spaceflight-related news.</h2>
         <Col md={6} sm={12}></Col>
         <Col md={6} sm={12}>
-          <Filter />
+          <Filter
+            options={NEWS_SITE}
+            onChange={setSelectedOption}
+            by='news site'
+          />
         </Col>
       </Row>
       <Row className='px-2'>
@@ -40,8 +51,12 @@ function News() {
           <MessageAlert type='error' message={error} />
         ) : isLoading ? (
           <Spinner animation='border' role='status' className='loading' />
+        ) : !selectedOption || selectedOption === 'default' ? (
+          generateNews(news)
+        ) : results.length === 0 ? (
+          <MessageAlert type='error' message='Sorry No results found.' />
         ) : (
-          generateNews()
+          generateNews(results)
         )}
       </Row>
     </>

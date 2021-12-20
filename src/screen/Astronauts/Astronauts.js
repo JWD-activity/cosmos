@@ -1,25 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // import SummaryCard from '../../components/SummaryCard/SummaryCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronauts } from '../../redux/astronautSlice';
+import { ASTRONAUT_STATUS } from '../../utils/config';
 import './Astronauts.css';
 import Search from '../../components/Search/Search';
 import Filter from '../../components/Filter/Filter';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Spinner from 'react-bootstrap/Spinner';
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
+import { astronautsFilter } from '../../utils/utils';
 function Astronauts() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.astronauts.error);
   const isLoading = useSelector((state) => state.astronauts.isLoading);
-  const astronauts = useSelector(
-    (state) => state.astronauts.astronauts.results
-  );
+  const astronauts = useSelector((state) => state.astronauts.astronauts);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [results, setResults] = useState([]);
 
-  console.log(astronauts);
+  useEffect(() => {
+    setResults(astronautsFilter(astronauts, selectedOption));
+  }, [selectedOption, astronauts.length]);
 
   useEffect(() => {
     dispatch(fetchAstronauts());
@@ -37,7 +41,11 @@ function Astronauts() {
             <Search />
           </Col>
           <Col md={6} sm={12}>
-            <Filter />
+            <Filter
+              options={ASTRONAUT_STATUS}
+              by='status'
+              onChange={setSelectedOption}
+            />
           </Col>
         </Row>
       </Col>
@@ -49,36 +57,17 @@ function Astronauts() {
             <Spinner animation='border' role='status' className='loading' />
           ) : (
             <CardCarousel
-              data={astronauts}
+              data={
+                !selectedOption || selectedOption === 'default'
+                  ? astronauts
+                  : results
+              }
               numPerPage={8}
               section='astronauts'
             />
           )}
         </Row>
       </Col>
-      {/*
-          <Col>
-            <Row>
-              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
-                <SummaryCard />
-              </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
-                <SummaryCard />
-              </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
-                <SummaryCard />
-              </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
-                <SummaryCard />
-              </Col>
-              <Col lg={4} md={6} sm={12} className='px-3 my-4'>
-                <SummaryCard />
-              </Col>
-              <Col lg={4} md={6} sm={12} className='px-2 my-4'>
-                <SummaryCard />
-              </Col>
-            </Row>
-          </Col> */}
     </Row>
   );
 }

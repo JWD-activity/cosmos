@@ -26,9 +26,7 @@ function AstronautsDetails() {
   const error = useSelector((state) => state.astronautDetails.error);
   const isLoading = useSelector((state) => state.astronautDetails.isLoading);
   const data = useSelector((state) => state.astronautDetails.astronautDetails);
-  const astronauts = useSelector(
-    (state) => state.astronauts.astronauts.results
-  );
+  const astronauts = useSelector((state) => state.astronauts.astronauts);
 
   const totalPage = astronauts.length;
 

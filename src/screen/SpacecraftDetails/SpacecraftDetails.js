@@ -85,8 +85,8 @@ function SpacecraftDetails() {
     return (
       <>
         <h3>{agency.name}</h3>
-        <h4>Height: {height}M</h4>
-        <h4>Flight Life: {flight_life}</h4>
+        {height ? <h4>Height: {height}M</h4> : ''}
+        {flight_life ? <h4>Flight Life: {flight_life}</h4> : ''}
       </>
     );
   };

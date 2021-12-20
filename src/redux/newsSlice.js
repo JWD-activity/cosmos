@@ -4,20 +4,20 @@ import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
 const initialState = {
   isLoading: true,
-  news: getLocalStorage('news') || {},
+  news: [],
   error: '',
 };
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
-  const hasLocalData = getLocalStorage('news');
-  if (hasLocalData) return hasLocalData;
-  else {
-    const response = await axios.get(
-      'https://api.spaceflightnewsapi.net/v3/articles'
-    );
-    setLocalStorage('news', response.data);
-    return response.data;
-  }
+  // const hasLocalData = getLocalStorage('news');
+  // if (hasLocalData) return hasLocalData;
+  // else {
+  const response = await axios.get(
+    'https://api.spaceflightnewsapi.net/v3/articles'
+  );
+  // setLocalStorage('news', response.data);
+  return response.data;
+  // }
 });
 
 export const newsSlice = createSlice({

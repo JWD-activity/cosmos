@@ -1,28 +1,10 @@
+///////////////////////////////// PAGENATION
+// Slice data
 export const buildPage = (currentPage, numPerPage) => {
   const start = (currentPage - 1) * numPerPage;
   const end = start + numPerPage;
 
   return { start, end };
-};
-
-// Check empty data
-export const isEmptyData = (obj) => {
-  for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) return false;
-  }
-  return true;
-};
-
-// Get localStorage
-export const setLocalStorage = (storageName, data) => {
-  localStorage.setItem(storageName, JSON.stringify(data));
-};
-
-// Set localStorage
-export const getLocalStorage = (storageName) => {
-  if (window !== 'undefined' && localStorage.getItem(storageName))
-    return JSON.parse(localStorage.getItem(storageName));
-  else return false;
 };
 
 // Controll navigation of detail page
@@ -49,6 +31,36 @@ export const getCurrentIndex = (data, id) => {
   return data.findIndex((item) => item.id === +id);
 };
 
+///////////////////////////////// LOCALSTORAGE
+// Get localStorage
+export const setLocalStorage = (storageName, data) => {
+  localStorage.setItem(storageName, JSON.stringify(data));
+};
+
+// Set localStorage
+export const getLocalStorage = (storageName) => {
+  if (window !== 'undefined' && localStorage.getItem(storageName))
+    return JSON.parse(localStorage.getItem(storageName));
+  else return false;
+};
+
+// Check empty data
+export const isEmptyData = (obj) => {
+  for (var prop in obj) {
+    if (obj.hasOwnProperty(prop)) return false;
+  }
+  return true;
+};
+///////////////////////////////// FILTERS
+export const newsFilter = (data, query) => {
+  return data.filter((news) => news.newsSite.includes(query));
+};
+
+export const astronautsFilter = (data, query) => {
+  console.log(data);
+  return data.filter((astronaut) => astronaut.status.name.includes(query));
+};
+///////////////////////////////// OTHERS
 export const checkButtonTarget = (target) => {
   const element = target.nodeName;
   if (element === 'BUTTON' || element === 'path' || element === 'svg')
