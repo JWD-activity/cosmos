@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from '../Button/Button';
-import Badge from 'react-bootstrap/Badge';
-import { Link } from 'react-router-dom';
 
 import './CardNews.css';
 

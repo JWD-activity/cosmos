@@ -21,7 +21,6 @@
 
 .summary-card--astronauts .card-title {
   font-size: 1.6rem;
-  /* margin: 0 0 1.5rem 0; */
 }
 
 .summary-card--astronauts button {
@@ -29,7 +28,6 @@
 }
 
 .img-sm--astronauts {
-  /* max-height: 13rem; */
   object-fit: contain;
   object-position: top;
 }

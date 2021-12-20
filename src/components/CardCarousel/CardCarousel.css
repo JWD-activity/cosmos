@@ -1,6 +1,11 @@
 .carousel {
   margin-top: 1.5rem;
 }
+
+.carousel-inner {
+  margin-top: 1rem;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
   align-items: flex-start;
@@ -21,8 +26,4 @@
   border-radius: 2rem;
   width: 10rem;
   padding: 0.5rem 1rem;
-}
-
-.carousel-inner {
-  margin-top: 1rem;
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
 import { IoIosRocket } from 'react-icons/io';
 import { FaUserAstronaut } from 'react-icons/fa';
 import { FcWikipedia } from 'react-icons/fc';
+
 import './IconButton.css';
 
 function IconButton({ type }) {

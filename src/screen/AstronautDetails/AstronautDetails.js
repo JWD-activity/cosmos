@@ -2,34 +2,37 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronautDetails } from '../../redux/astronautDetailSlice';
-import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import { fetchAstronauts } from '../../redux/astronautSlice';
-import './AstronautDetails.css';
 import {
   navigateDetailPage,
   getCurrentIndex,
   checkButtonTarget,
 } from '../../utils/utils';
+
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
+import IconButton from '../../components/IconButton/IconButton';
+
+import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Image from 'react-bootstrap/Image';
-import IconButton from '../../components/IconButton/IconButton';
+
 import './AstronautDetails.css';
-import Badge from 'react-bootstrap/Badge';
 
 function AstronautsDetails() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const [currentPage, setCurrentPage] = useState(null);
+
   const error = useSelector((state) => state.astronautDetails.error);
   const isLoading = useSelector((state) => state.astronautDetails.isLoading);
   const data = useSelector((state) => state.astronautDetails.astronautDetails);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
+
+  const [currentPage, setCurrentPage] = useState(null);
   const localData = localStorage.getItem('finalResults');
   const filterResults = localData ? JSON.parse(localData) : astronauts;
-
   const totalPage = filterResults.length;
 
   useEffect(() => {
@@ -77,6 +80,7 @@ function AstronautsDetails() {
   const generateInfo = () => {
     const { nationality, agency, bio, date_of_birth, status } = data;
     const birthDate = new Date(date_of_birth).toLocaleDateString();
+
     return (
       <>
         <h3>{agency.name}</h3>
@@ -154,7 +158,6 @@ function AstronautsDetails() {
     );
   };
 
-  console.log(data);
   return (
     <>
       {error ? (

@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import CardNews from '../../components/CardNews/CardNews';
-import Filter from '../../components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/newsSlice';
-import MessageAlert from '../../components/MessageAlert/MessageAlert';
-import Spinner from 'react-bootstrap/Spinner';
 import { NEWS_SITE } from '../../utils/config';
 import { newsFilter } from '../../utils/utils';
+
+import CardNews from '../../components/CardNews/CardNews';
+import Filter from '../../components/Filter/Filter';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
+import Spinner from 'react-bootstrap/Spinner';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function News() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.news.error);
   const isLoading = useSelector((state) => state.news.isLoading);
   const news = useSelector((state) => state.news.news);
+
   const [selectedOption, setSelectedOption] = useState(null);
   const [results, setResults] = useState([]);
 
@@ -32,6 +33,7 @@ function News() {
       return <CardNews key={content.id} content={content} />;
     });
   };
+
   return (
     <>
       <Row className='my-3 pt-4'>

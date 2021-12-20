@@ -21,9 +21,6 @@ import './SpacecraftDetails.css';
 
 function SpacecraftDetails() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [currentPage, setCurrentPage] = useState(null);
   const error = useSelector((state) => state.spacecraftDetails.error);
   const isLoading = useSelector((state) => state.spacecraftDetails.isLoading);
   const data = useSelector(
@@ -33,6 +30,9 @@ function SpacecraftDetails() {
     (state) => state.spacecraft.spacecraft.results
   );
 
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [currentPage, setCurrentPage] = useState(null);
   const totalPage = spacecraft.length;
 
   useEffect(() => {

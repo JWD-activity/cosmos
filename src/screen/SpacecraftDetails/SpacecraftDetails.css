@@ -24,9 +24,3 @@
   background-color: var(--light-grey);
   border-radius: var(--border-radius--btn);
 }
-
-/* flex-direction: column;
-  gap: 1.5rem;
-  padding: 3.5rem 0;
-  max-height: 65rem;
-  overflow: auto; */

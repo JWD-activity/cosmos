@@ -1,27 +1,28 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-// import SummaryCard from '../../components/SummaryCard/SummaryCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronauts } from '../../redux/astronautSlice';
 import { ASTRONAUT_STATUS } from '../../utils/config';
-import './Astronauts.css';
+import { astronautsFilter, searchFilter } from '../../utils/utils';
+
 import Search from '../../components/Search/Search';
 import Filter from '../../components/Filter/Filter';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
-import Spinner from 'react-bootstrap/Spinner';
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
-import { astronautsFilter, searchFilter } from '../../utils/utils';
+import Spinner from 'react-bootstrap/Spinner';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './Astronauts.css';
+
 function Astronauts() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.astronauts.error);
   const isLoading = useSelector((state) => state.astronauts.isLoading);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
+
+  const selectRef = useRef(null);
   const [selectedOption, setSelectedOption] = useState('default');
   const [finalResults, setFinalResults] = useState([]);
   const [query, setQuery] = useState('');
-  const selectRef = useRef(null);
 
   useEffect(() => {
     dispatch(fetchAstronauts());
@@ -97,7 +98,6 @@ function Astronauts() {
       </Col>
       <Col>
         <Row className='position-relative'>
-          {/* {console.log('FINAL', finalResults)} */}
           {error ? (
             <MessageAlert type='error' message={error} />
           ) : isLoading ? (

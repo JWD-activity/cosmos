@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './screen/Home/Home';
@@ -10,6 +9,7 @@ import News from './screen/News/News';
 import Navigation from './components/Navigation/Navigation';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
+import './App.css';
 
 function App() {
   return (

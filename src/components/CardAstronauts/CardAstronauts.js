@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from '../Button/Button';
-import './CardAstronauts.css';
-import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
+
+import './CardAstronauts.css';
 
 function CardAstronauts({ content }) {
   const {

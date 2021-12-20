@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Card from 'react-bootstrap/Card';
 import Button from '../Button/Button';
+
 import './CardSpacecraft.css';
-import { Link } from 'react-router-dom';
 
 function CardSpacecraft({ content }) {
   const { image_url, name, id } = content;

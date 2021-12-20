@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { buildPage } from '../../utils/utils';
 
 import CardSpacecraft from '../CardSpacecraft/CardSpacecraft';
+import CardAstronauts from '../CardAstronauts/CardAstronauts';
 import IconButton from '../IconButton/IconButton';
 import Carousel from 'react-bootstrap/Carousel';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import './CardCarousel.css';
-import CardAstronauts from '../CardAstronauts/CardAstronauts';
 
 function CardCarousel({ data, numPerPage, section }) {
   const [index, setIndex] = useState(0);
