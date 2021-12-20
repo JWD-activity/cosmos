@@ -23,11 +23,15 @@ function Astronauts() {
 
   useEffect(() => {
     setResults(astronautsFilter(astronauts, selectedOption));
-  }, [selectedOption, astronauts.length]);
+  }, [selectedOption, astronauts]);
 
   useEffect(() => {
     dispatch(fetchAstronauts());
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('filterResults', JSON.stringify(results));
+  }, [results, results.length]);
 
   return (
     <Row className='flex-column'>

@@ -27,17 +27,25 @@ function AstronautsDetails() {
   const isLoading = useSelector((state) => state.astronautDetails.isLoading);
   const data = useSelector((state) => state.astronautDetails.astronautDetails);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
+  const localData = localStorage.getItem('filterResults');
+  const filterResults = localData ? JSON.parse(localData) : astronauts;
 
-  const totalPage = astronauts.length;
+  const totalPage = filterResults.length;
+  // console.log(filterResults, astronauts);
+  // const contentData = filtering
+  //   ? localStorage.getItem('filterResults')
+  //   : data;
+  // const result = contentData.slice(start, end);
+  // const localData = localStorage.getItem('filterResults');
 
   useEffect(() => {
     dispatch(fetchAstronauts());
   }, []);
 
   useEffect(() => {
-    setCurrentPage(getCurrentIndex(astronauts, id) + 1);
+    setCurrentPage(getCurrentIndex(filterResults, id) + 1);
     dispatch(fetchAstronautDetails(id));
-  }, [id, astronauts]);
+  }, [id]);
 
   const generateBadge = (name) => {
     const status = name.toLowerCase();
@@ -60,14 +68,14 @@ function AstronautsDetails() {
 
   const onPrevClickHanlder = (ev) => {
     if (checkButtonTarget(ev.target)) {
-      const { selectedId } = navigateDetailPage('prev', astronauts, id);
+      const { selectedId } = navigateDetailPage('prev', filterResults, id);
       if (selectedId) navigate(`/astronauts/${selectedId}`);
     }
   };
 
   const onNextClickHanlder = (ev) => {
     if (checkButtonTarget(ev.target)) {
-      const { selectedId } = navigateDetailPage('next', astronauts, id);
+      const { selectedId } = navigateDetailPage('next', filterResults, id);
       if (selectedId) navigate(`/astronauts/${selectedId}`);
     }
   };

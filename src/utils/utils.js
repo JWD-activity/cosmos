@@ -57,7 +57,7 @@ export const newsFilter = (data, query) => {
 };
 
 export const astronautsFilter = (data, query) => {
-  console.log(data);
+  console.log('UTIL', data);
   return data.filter((astronaut) => astronaut.status.name.includes(query));
 };
 ///////////////////////////////// OTHERS

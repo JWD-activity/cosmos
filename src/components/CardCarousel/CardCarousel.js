@@ -13,7 +13,7 @@ import CardAstronauts from '../CardAstronauts/CardAstronauts';
 function CardCarousel({ data, numPerPage, section }) {
   const [index, setIndex] = useState(0);
   const [contents, setContents] = useState([]);
-
+  console.log('CCCC', data);
   useEffect(() => {
     if (data) {
       displayCarouselItem();

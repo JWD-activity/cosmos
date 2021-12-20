@@ -5,7 +5,7 @@ import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
 const initialState = {
   isLoading: true,
-  astronauts: getLocalStorage('astronauts') || {},
+  astronauts: getLocalStorage('astronauts') || [],
   error: '',
 };
 
@@ -19,7 +19,7 @@ export const fetchAstronauts = createAsyncThunk(
         params: { limit: 100 },
       });
       setLocalStorage('astronauts', response.data.results);
-      return response.data;
+      return response.data.results;
     }
   }
 );
