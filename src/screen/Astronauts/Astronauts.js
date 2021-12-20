@@ -82,8 +82,13 @@ function Astronauts() {
             {query ? (
               <MessageAlert
                 type='info'
-                message={`Search results for "${query}"`}
+                message={`${finalResults.length} search results for "${query}"`}
               />
+            ) : (
+              ''
+            )}
+            {finalResults.length === 0 ? (
+              <MessageAlert type='error' message='Sorry No results found.' />
             ) : (
               ''
             )}
@@ -92,7 +97,7 @@ function Astronauts() {
       </Col>
       <Col>
         <Row className='position-relative'>
-          {console.log('FINAL', finalResults)}
+          {/* {console.log('FINAL', finalResults)} */}
           {error ? (
             <MessageAlert type='error' message={error} />
           ) : isLoading ? (

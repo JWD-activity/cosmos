@@ -31,12 +31,6 @@ function AstronautsDetails() {
   const filterResults = localData ? JSON.parse(localData) : astronauts;
 
   const totalPage = filterResults.length;
-  // console.log(filterResults, astronauts);
-  // const contentData = filtering
-  //   ? localStorage.getItem('filterResults')
-  //   : data;
-  // const result = contentData.slice(start, end);
-  // const localData = localStorage.getItem('filterResults');
 
   useEffect(() => {
     dispatch(fetchAstronauts());
@@ -144,8 +138,6 @@ function AstronautsDetails() {
                       </Col>
                     </Row>
                   </Col>
-
-                  <Col>{/* <p>{details}</p> */}</Col>
                 </>
               )}
             </Row>

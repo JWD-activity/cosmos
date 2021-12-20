@@ -51,7 +51,6 @@ function CardAstronauts({ content }) {
             <h4 className='text-muted'>{agency.name}</h4>
           </Row>
 
-          {/* <p>{status.name}</p> */}
           <Button>VIEW DETAILS</Button>
         </Card.Body>
       </Card>
