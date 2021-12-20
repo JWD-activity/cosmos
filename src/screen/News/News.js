@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import NewsCard from '../../components/NewsCard/NewsCard';
+import CardNews from '../../components/CardNews/CardNews';
 import Filter from '../../components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchNews } from '../../redux/newsSlice';
@@ -22,7 +22,7 @@ function News() {
 
   const generateNews = () => {
     return news.map((content) => {
-      return <NewsCard key={content.id} content={content} />;
+      return <CardNews key={content.id} content={content} />;
     });
   };
   return (

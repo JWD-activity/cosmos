@@ -9,7 +9,11 @@ function Main({ children }) {
   const location = useLocation();
   const { pathname } = location;
 
-  if (pathname === '/' || pathname.includes('spacecraft')) {
+  if (
+    pathname === '/' ||
+    pathname.includes('/astronauts/') ||
+    pathname.includes('spacecraft')
+  ) {
     return (
       <main className='position-relative'>
         <Container className='main-container'>{children}</Container>

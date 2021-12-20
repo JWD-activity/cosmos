@@ -7,9 +7,9 @@ import Button from '../Button/Button';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
 
-import './NewsCard.css';
+import './CardNews.css';
 
-function NewsCard({ content }) {
+function CardNews({ content }) {
   const { imageUrl, title, newsSite, updatedAt, url } = content;
   let updatedDate = new Date(updatedAt).toLocaleString();
 
@@ -34,4 +34,4 @@ function NewsCard({ content }) {
   );
 }
 
-export default NewsCard;
+export default CardNews;

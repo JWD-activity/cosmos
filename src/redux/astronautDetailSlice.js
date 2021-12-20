@@ -12,13 +12,9 @@ const initialState = {
 export const fetchAstronautDetails = createAsyncThunk(
   'astronauts/fetchAstronautDetails',
   async (id) => {
-    const hasLocalData = getLocalStorage('astronautDetails');
-    if (hasLocalData) return hasLocalData;
-    else {
-      const response = await axios.get(URL_BASE + GET_ALL_ASTRONAUT + id);
-      setLocalStorage('astronautDetails', response.data);
-      return response.data;
-    }
+    const response = await axios.get(URL_BASE + GET_ALL_ASTRONAUT + id);
+    setLocalStorage('astronautDetails', response.data);
+    return response.data;
   }
 );
 
