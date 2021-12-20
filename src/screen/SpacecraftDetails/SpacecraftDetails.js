@@ -42,7 +42,7 @@ function SpacecraftDetails() {
   useEffect(() => {
     setCurrentPage(getCurrentIndex(spacecraft, id) + 1);
     dispatch(fetchSpaceDetails(id));
-  }, [id, spacecraft]);
+  }, [id, spacecraft, dispatch]);
 
   const generateBadge = () => {
     const { in_use, human_rated, crew_capacity } = data;

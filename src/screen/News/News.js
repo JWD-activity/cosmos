@@ -26,7 +26,7 @@ function News() {
 
   useEffect(() => {
     setResults(newsFilter(news, selectedOption));
-  }, [selectedOption, news.length]);
+  }, [selectedOption, news, news.length]);
 
   const generateNews = (data) => {
     return data.map((content) => {

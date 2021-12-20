@@ -28,14 +28,6 @@ function Astronauts() {
   }, []);
 
   useEffect(() => {
-    getFinalData();
-  }, [astronauts, selectedOption, query]);
-
-  const onSubmitHander = (query) => {
-    setQuery(query);
-  };
-
-  const getFinalData = () => {
     let results;
     if (selectedOption === 'default') {
       if (query) results = searchFilter(astronauts, query);
@@ -56,6 +48,10 @@ function Astronauts() {
 
     setFinalResults(results);
     localStorage.setItem('finalResults', JSON.stringify(results));
+  }, [astronauts, selectedOption, query]);
+
+  const onSubmitHander = (query) => {
+    setQuery(query);
   };
 
   return (
