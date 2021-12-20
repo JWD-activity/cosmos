@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +12,7 @@ import Filter from '../../components/Filter/Filter';
 import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Spinner from 'react-bootstrap/Spinner';
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
-import { astronautsFilter } from '../../utils/utils';
+import { astronautsFilter, searchFilter } from '../../utils/utils';
 function Astronauts() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.astronauts.error);
@@ -20,6 +20,8 @@ function Astronauts() {
   const astronauts = useSelector((state) => state.astronauts.astronauts);
   const [selectedOption, setSelectedOption] = useState(null);
   const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
+  const formRef = useRef(null);
 
   useEffect(() => {
     setResults(astronautsFilter(astronauts, selectedOption));
@@ -33,6 +35,19 @@ function Astronauts() {
     localStorage.setItem('filterResults', JSON.stringify(results));
   }, [results, results.length]);
 
+  useEffect(() => {
+    console.log(query);
+  }, [query]);
+
+  // const generateResults = ()=>{
+  //   let data;
+  //   let message;
+  //   if()
+  // }
+  const onSubmitHander = (query) => {
+    setQuery(query);
+  };
+
   return (
     <Row className='flex-column'>
       <Col className='astronauts-heading'>
@@ -42,7 +57,7 @@ function Astronauts() {
       <Col>
         <Row className='my-5'>
           <Col md={6} sm={12}>
-            <Search />
+            <Search onSubmitHandler={onSubmitHander} />
           </Col>
           <Col md={6} sm={12}>
             <Filter

@@ -51,15 +51,22 @@ export const isEmptyData = (obj) => {
   }
   return true;
 };
+
 ///////////////////////////////// FILTERS
 export const newsFilter = (data, query) => {
   return data.filter((news) => news.newsSite.includes(query));
 };
 
 export const astronautsFilter = (data, query) => {
-  console.log('UTIL', data);
   return data.filter((astronaut) => astronaut.status.name.includes(query));
 };
+
+export const searchFilter = (data, query) => {
+  return data.filter((astronaut) =>
+    astronaut.name.toLowerCase().includes(query)
+  );
+};
+
 ///////////////////////////////// OTHERS
 export const checkButtonTarget = (target) => {
   const element = target.nodeName;
