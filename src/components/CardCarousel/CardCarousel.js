@@ -17,6 +17,7 @@ function CardCarousel({ data, numPerPage, section }) {
   useEffect(() => {
     if (data) {
       displayCarouselItem();
+      setIndex(0);
     }
   }, [data]);
 

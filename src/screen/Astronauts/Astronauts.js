@@ -67,7 +67,7 @@ function Astronauts() {
       <Col>
         <Row className='my-5'>
           <Col md={6} sm={12}>
-            <Search onSubmitHandler={onSubmitHander} />
+            <Search onQueryHandler={onSubmitHander} />
           </Col>
           <Col md={6} sm={12}>
             <Filter

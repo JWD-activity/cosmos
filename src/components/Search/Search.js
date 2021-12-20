@@ -7,19 +7,20 @@ import { BsFillXCircleFill } from 'react-icons/bs';
 
 import './Search.css';
 
-function Search({ onSubmitHandler }) {
+function Search({ onQueryHandler }) {
   const [searchText, setSearchText] = useState('');
   const changeHandler = (ev) => {
+    if (ev.target.value.trim()) onQueryHandler('');
     setSearchText(ev.target.value);
   };
 
   const submitHandler = (ev) => {
     ev.preventDefault();
-    if (searchText.trim()) onSubmitHandler(searchText);
+    if (searchText.trim()) onQueryHandler(searchText);
   };
 
   const onClearHandler = () => {
-    onSubmitHandler('');
+    onQueryHandler('');
     setSearchText('');
   };
 
