@@ -18,10 +18,10 @@ function Astronauts() {
   const error = useSelector((state) => state.astronauts.error);
   const isLoading = useSelector((state) => state.astronauts.isLoading);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('default');
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
-  const formRef = useRef(null);
+  const selectRef = useRef(null);
 
   useEffect(() => {
     setResults(astronautsFilter(astronauts, selectedOption));
@@ -36,14 +36,9 @@ function Astronauts() {
   }, [results, results.length]);
 
   useEffect(() => {
-    console.log(query);
+    searchFilter();
   }, [query]);
 
-  // const generateResults = ()=>{
-  //   let data;
-  //   let message;
-  //   if()
-  // }
   const onSubmitHander = (query) => {
     setQuery(query);
   };
@@ -64,6 +59,8 @@ function Astronauts() {
               options={ASTRONAUT_STATUS}
               by='status'
               onChange={setSelectedOption}
+              selectRef={selectRef}
+              value={selectedOption}
             />
           </Col>
         </Row>
@@ -76,11 +73,7 @@ function Astronauts() {
             <Spinner animation='border' role='status' className='loading' />
           ) : (
             <CardCarousel
-              data={
-                !selectedOption || selectedOption === 'default'
-                  ? astronauts
-                  : results
-              }
+              data={selectedOption === 'default' ? astronauts : results}
               numPerPage={8}
               section='astronauts'
             />
