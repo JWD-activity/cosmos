@@ -127,7 +127,7 @@ function SpacecraftDetails() {
                         <h2>{name}</h2>
                         {generateBadge()}
                         {generateInfo()}
-                        <Row className='mt-4'>
+                        <Row className='mt-4 d-inline-flex'>
                           <Link to='/spacecraft'>
                             <IconButton type='goback' />
                           </Link>

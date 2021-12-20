@@ -27,7 +27,7 @@ function AstronautsDetails() {
   const isLoading = useSelector((state) => state.astronautDetails.isLoading);
   const data = useSelector((state) => state.astronautDetails.astronautDetails);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
-  const localData = localStorage.getItem('filterResults');
+  const localData = localStorage.getItem('finalResults');
   const filterResults = localData ? JSON.parse(localData) : astronauts;
 
   const totalPage = filterResults.length;
@@ -136,7 +136,7 @@ function AstronautsDetails() {
                         </h2>
 
                         {generateInfo()}
-                        <Row className='mt-4 align-items-center'>
+                        <Row className='mt-4 align-items-center d-inline-flex'>
                           <Link to='/astronauts'>
                             <IconButton type='goback' />
                           </Link>

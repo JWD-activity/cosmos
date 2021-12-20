@@ -19,7 +19,6 @@ function Astronauts() {
   const isLoading = useSelector((state) => state.astronauts.isLoading);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
   const [selectedOption, setSelectedOption] = useState('default');
-  const [filterResults, setFilterResults] = useState([]);
   const [finalResults, setFinalResults] = useState([]);
   const [query, setQuery] = useState('');
   const selectRef = useRef(null);
@@ -29,23 +28,30 @@ function Astronauts() {
   }, []);
 
   useEffect(() => {
-    setFilterResults(astronautsFilter(astronauts, selectedOption));
-  }, [selectedOption]);
-
-  useEffect(() => {
-    localStorage.setItem('filterResults', JSON.stringify(filterResults));
-  }, [filterResults, filterResults.length]);
-
-  useEffect(() => {
     getFinalData();
-  }, [query]);
+  }, [astronauts, selectedOption, query]);
 
   const getFinalData = () => {
     let results;
-    if (selectedOption === 'default') results = searchFilter(astronauts, query);
-    else results = searchFilter(filterResults, query);
+    if (selectedOption === 'default') {
+      if (query) results = searchFilter(astronauts, query);
+      if (!query) results = astronauts;
+    }
+
+    if (selectedOption !== 'default') {
+      if (query) {
+        results = searchFilter(
+          astronautsFilter(astronauts, selectedOption),
+          query
+        );
+      }
+      if (!query) {
+        results = astronautsFilter(astronauts, selectedOption);
+      }
+    }
 
     setFinalResults(results);
+    localStorage.setItem('finalResults', JSON.stringify(results));
   };
 
   const onSubmitHander = (query) => {
@@ -72,10 +78,21 @@ function Astronauts() {
               value={selectedOption}
             />
           </Col>
+          <Col className='mt-3'>
+            {query ? (
+              <MessageAlert
+                type='info'
+                message={`Search results for "${query}"`}
+              />
+            ) : (
+              ''
+            )}
+          </Col>
         </Row>
       </Col>
       <Col>
         <Row className='position-relative'>
+          {console.log('FINAL', finalResults)}
           {error ? (
             <MessageAlert type='error' message={error} />
           ) : isLoading ? (
@@ -83,7 +100,6 @@ function Astronauts() {
           ) : (
             <CardCarousel
               data={finalResults}
-              // data={selectedOption === 'default' ? astronauts : filterResults}
               numPerPage={8}
               section='astronauts'
             />

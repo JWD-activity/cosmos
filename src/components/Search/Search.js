@@ -18,6 +18,7 @@ function Search({ onSubmitHandler }) {
   };
 
   const onClearHandler = () => {
+    onSubmitHandler('');
     setSearchText('');
   };
 
