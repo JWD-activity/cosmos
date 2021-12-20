@@ -21,6 +21,7 @@
 .summary-card--spacecraft .card-title {
   font-size: 1.6rem;
   margin: 1rem 0 1.5rem 0;
+  color: var(--dark-grey);
 }
 
 .summary-card--spacecraft button {
