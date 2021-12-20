@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import './Filter.css';
 
-function Filter({ options, onChange, by, selectRef, selectedOption }) {
+function Filter({ options, onChange, by, selectedOption }) {
   const onChangeHandler = (ev) => {
     onChange(ev.target.value);
   };
@@ -19,7 +19,6 @@ function Filter({ options, onChange, by, selectRef, selectedOption }) {
       aria-label='Default select example'
       className='filter'
       onChange={onChangeHandler}
-      ref={selectRef}
       value={selectedOption}
     >
       <option value='default'>Filter by {by}</option>

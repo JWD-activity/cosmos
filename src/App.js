@@ -6,6 +6,7 @@ import SpacecraftDetails from './screen/SpacecraftDetails/SpacecraftDetails';
 import Astronauts from './screen/Astronauts/Astronauts';
 import AstronautDetails from './screen/AstronautDetails/AstronautDetails';
 import News from './screen/News/News';
+import NotFound from './screen/NotFound/NotFound';
 import Navigation from './components/Navigation/Navigation';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
@@ -24,6 +25,7 @@ function App() {
             <Route path='astronauts' element={<Astronauts />} />
             <Route path='astronauts/:id' element={<AstronautDetails />} />
             <Route path='news' element={<News />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </Main>
       </Router>

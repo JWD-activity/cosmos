@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronauts } from '../../redux/astronautSlice';
 import { ASTRONAUT_STATUS } from '../../utils/config';
@@ -19,7 +19,6 @@ function Astronauts() {
   const isLoading = useSelector((state) => state.astronauts.isLoading);
   const astronauts = useSelector((state) => state.astronauts.astronauts);
 
-  const selectRef = useRef(null);
   const [selectedOption, setSelectedOption] = useState('default');
   const [finalResults, setFinalResults] = useState([]);
   const [query, setQuery] = useState('');
@@ -75,7 +74,6 @@ function Astronauts() {
               options={ASTRONAUT_STATUS}
               by='status'
               onChange={setSelectedOption}
-              selectRef={selectRef}
               value={selectedOption}
             />
           </Col>
@@ -88,7 +86,7 @@ function Astronauts() {
             ) : (
               ''
             )}
-            {finalResults.length === 0 ? (
+            {!isLoading && finalResults.length === 0 ? (
               <MessageAlert type='error' message='Sorry No results found.' />
             ) : (
               ''

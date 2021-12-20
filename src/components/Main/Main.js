@@ -9,20 +9,16 @@ function Main({ children }) {
   const location = useLocation();
   const { pathname } = location;
 
-  if (
-    pathname === '/' ||
-    pathname.includes('/astronauts/') ||
-    pathname.includes('spacecraft')
-  ) {
+  if (pathname === '/astronauts' || pathname === '/news') {
     return (
-      <main className='position-relative'>
-        <Container className='main-container'>{children}</Container>
+      <main>
+        <Container>{children}</Container>
       </main>
     );
   } else {
     return (
-      <main>
-        <Container>{children}</Container>
+      <main className='position-relative'>
+        <Container className='main-container'>{children}</Container>
       </main>
     );
   }
