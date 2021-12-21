@@ -22,6 +22,9 @@
   - **react-router-dom** https://reactrouter.com/
   - **axios** https://www.npmjs.com/package/react-axios
   - **Redux Toolkit** https://redux-toolkit.js.org/
+- API
+  - The Space Devs API https://lldev.thespacedevs.com/2.2.0/swagger
+  - Spaceflight News API https://api.spaceflightnewsapi.net/v3/documentation#/Article
 
 
 ### Things I applied
