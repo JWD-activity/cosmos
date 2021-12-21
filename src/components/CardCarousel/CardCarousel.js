@@ -56,7 +56,7 @@ function CardCarousel({ data, numPerPage, section }) {
     setContents(content);
   };
 
-  const handleSelect = (selectedIndex, ev) => {
+  const onSelectHandler = (selectedIndex, ev) => {
     setIndex(selectedIndex);
   };
 
@@ -67,7 +67,7 @@ function CardCarousel({ data, numPerPage, section }) {
       </Col>
       <Carousel
         activeIndex={index}
-        onSelect={handleSelect}
+        onSelect={onSelectHandler}
         prevIcon={prevBtn}
         nextIcon={nextBtn}
         indicators={false}
