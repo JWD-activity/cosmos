@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { setLocalStorage, getLocalStorage } from '../utils/utils';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { GET_ALL_NEWS } from '../utils/config';
+import { setLocalStorage } from '../utils/utils';
 
 const initialState = {
   isLoading: true,
@@ -9,21 +10,14 @@ const initialState = {
 };
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
-  // const hasLocalData = getLocalStorage('news');
-  // if (hasLocalData) return hasLocalData;
-  // else {
-  const response = await axios.get(
-    'https://api.spaceflightnewsapi.net/v3/articles'
-  );
+  const response = await axios.get(GET_ALL_NEWS);
   setLocalStorage('news', response.data);
   return response.data;
-  // }
 });
 
 export const newsSlice = createSlice({
   name: 'news',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchNews.pending, (state, action) => {
@@ -40,6 +34,8 @@ export const newsSlice = createSlice({
   },
 });
 
-// export const { getSpacecraft } = astronautSlice.actions;
-
 export default newsSlice.reducer;
+
+// useful resources
+// https://redux-toolkit.js.org/api/createreducer#builderaddcase
+// https://redux-toolkit.js.org/api/createreducer#builderaddmatcher

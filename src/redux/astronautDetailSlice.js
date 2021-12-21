@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { URL_BASE, GET_ALL_ASTRONAUT } from '../utils/config';
 import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
@@ -21,7 +21,6 @@ export const fetchAstronautDetails = createAsyncThunk(
 export const astronautDetailSlice = createSlice({
   name: 'astronautDetails',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAstronautDetails.pending, (state, action) => {
@@ -37,8 +36,6 @@ export const astronautDetailSlice = createSlice({
       });
   },
 });
-
-// export const { getSpacecraft } = astronautSlice.actions;
 
 export default astronautDetailSlice.reducer;
 

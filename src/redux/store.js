@@ -20,3 +20,7 @@ const store = configureStore({
 // });
 
 export default store;
+
+// useful resources
+// https://redux-toolkit.js.org/usage/usage-guide
+// Store Subscriptions https://www.youtube.com/watch?v=0r3eKhWag-8

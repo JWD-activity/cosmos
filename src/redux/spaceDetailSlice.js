@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { URL_BASE, GET_ALL_SPACECRAFT } from '../utils/config';
 import { setLocalStorage, getLocalStorage } from '../utils/utils';
 
@@ -22,7 +21,6 @@ export const fetchSpaceDetails = createAsyncThunk(
 export const spaceDetailSlice = createSlice({
   name: 'spacecraftDetails',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchSpaceDetails.pending, (state, action) => {
@@ -39,6 +37,8 @@ export const spaceDetailSlice = createSlice({
   },
 });
 
-// export const { getSpacecraft } = spaceDetailSlice.actions;
-
 export default spaceDetailSlice.reducer;
+
+// useful resources
+// https://redux-toolkit.js.org/api/createreducer#builderaddcase
+// https://redux-toolkit.js.org/api/createreducer#builderaddmatcher

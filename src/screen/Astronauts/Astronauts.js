@@ -24,7 +24,7 @@ function Astronauts() {
   const astronauts = useSelector((state) => state.astronauts.astronauts);
 
   const [selectedOption, setSelectedOption] = useState('default');
-  const [finalResults, setFinalResults] = useState([]);
+  const [filterResults, setFilterResults] = useState([]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -49,9 +49,9 @@ function Astronauts() {
         results = astronautsFilter(astronauts, selectedOption);
       }
     }
-    setFinalResults(results);
+    setFilterResults(results);
 
-    setLocalStorage('finalResults', results);
+    setLocalStorage('filterResults', results);
   }, [astronauts, selectedOption, query]);
 
   const onSubmitHander = (query) => {
@@ -81,12 +81,12 @@ function Astronauts() {
             {query ? (
               <MessageAlert
                 type='info'
-                message={`${finalResults.length} search results for "${query}"`}
+                message={`${filterResults.length} search results for "${query}"`}
               />
             ) : (
               ''
             )}
-            {!isLoading && query && finalResults.length === 0 ? (
+            {!isLoading && query && filterResults.length === 0 ? (
               <MessageAlert type='error' message='Sorry No results found.' />
             ) : (
               ''
@@ -102,7 +102,7 @@ function Astronauts() {
             <Spinner animation='border' role='status' className='loading' />
           ) : (
             <CardCarousel
-              data={finalResults}
+              data={filterResults}
               numPerPage={8}
               section='astronauts'
             />

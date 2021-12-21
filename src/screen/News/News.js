@@ -37,10 +37,6 @@ function News() {
   }, []);
 
   useEffect(() => {
-    console.log(5555, bookmark);
-  }, [bookmark]);
-
-  useEffect(() => {
     dispatch(fetchNews());
   }, []);
 
@@ -74,7 +70,7 @@ function News() {
     <>
       <Row className='my-3 pt-4'>
         <h1>News</h1>
-        <h2>Check the latest spaceflight-related news.</h2>
+        <h2 className='mb-4'>Check the latest spaceflight-related news.</h2>
         <Col md={6} sm={12}></Col>
         <Col md={6} sm={12}>
           <Row className='flex-row-reverse'>

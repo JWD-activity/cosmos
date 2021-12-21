@@ -31,7 +31,7 @@ function AstronautsDetails() {
   const astronauts = useSelector((state) => state.astronauts.astronauts);
 
   const [currentPage, setCurrentPage] = useState(null);
-  const localData = localStorage.getItem('finalResults');
+  const localData = localStorage.getItem('filterResults');
   const filterResults = localData ? JSON.parse(localData) : astronauts;
   const totalPage = filterResults.length;
 
