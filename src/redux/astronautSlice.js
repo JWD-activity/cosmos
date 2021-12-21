@@ -38,7 +38,8 @@ export const astronautSlice = createSlice({
       })
       .addCase(fetchAstronauts.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error =
+          'Oops! Something went worng, while fetching the Astronauts data.';
       });
   },
 });

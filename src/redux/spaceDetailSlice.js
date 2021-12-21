@@ -32,7 +32,7 @@ export const spaceDetailSlice = createSlice({
       })
       .addCase(fetchSpaceDetails.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = 'Sorry, Something went worng!';
       });
   },
 });

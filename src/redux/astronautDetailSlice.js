@@ -32,7 +32,7 @@ export const astronautDetailSlice = createSlice({
       })
       .addCase(fetchAstronautDetails.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = 'Sorry, Something went worng!';
       });
   },
 });
