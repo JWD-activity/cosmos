@@ -11,6 +11,17 @@
 
 ## My process
 ### Built with
+- HTML
+- CSS
+- JavaScript
+- React
+- NPM 
+  - **gh-pages** https://www.npmjs.com/package/gh-pages
+  - **react-bootstrap** https://react-bootstrap.github.io/
+  - **react icons** https://react-icons.github.io/react-icons/
+  - **react-router-dom** https://reactrouter.com/
+  - **axios** https://www.npmjs.com/package/react-axios
+  - **Redux Toolkit** https://redux-toolkit.js.org/
 
 
 ### Things I applied
