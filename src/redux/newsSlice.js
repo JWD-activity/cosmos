@@ -15,7 +15,7 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
   const response = await axios.get(
     'https://api.spaceflightnewsapi.net/v3/articles'
   );
-  // setLocalStorage('news', response.data);
+  setLocalStorage('news', response.data);
   return response.data;
   // }
 });
