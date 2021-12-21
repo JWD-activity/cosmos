@@ -12,7 +12,7 @@ const initialState = {
 export const fetchSpaceDetails = createAsyncThunk(
   'spacecraft/fetchSpaceDetails',
   async (id) => {
-    const response = await axios.get(`${URL_BASE}${GET_ALL_SPACECRAFT}${id}`);
+    const response = await axios.get(URL_BASE + GET_ALL_SPACECRAFT + id);
     setLocalStorage('spacecraftDetails', response.data);
     return response.data;
   }
