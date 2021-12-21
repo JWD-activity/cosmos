@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { isBookmarkNews } from '../../utils/utils';
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from '../Button/Button';
+import IconButton from '../IconButton/IconButton';
 
 import './CardNews.css';
 
-function CardNews({ content }) {
-  const { imageUrl, title, newsSite, updatedAt, url } = content;
+function CardNews({ content, setSelectedNewsId, setIsChecked, bookmark }) {
+  const [isBookmark, setIsBookmark] = useState(false);
+
+  const { imageUrl, title, newsSite, updatedAt, url, id } = content;
   let updatedDate = new Date(updatedAt).toLocaleString();
+
+  useEffect(() => {
+    setIsBookmark(isBookmarkNews(id));
+  }, [bookmark, id]);
+
+  const onBookmarkHandler = () => {
+    setIsBookmark(!isBookmark);
+    setSelectedNewsId(id);
+    setIsChecked(!isBookmark);
+  };
 
   return (
     <Card className='news-box my-3'>
@@ -23,9 +37,19 @@ function CardNews({ content }) {
             <span>{newsSite}</span>
             <span className='updated'>{updatedDate}</span>
           </Card.Subtitle>
-          <a href={url} target='_blank' rel='noreferrer'>
-            <Button>READ MORE</Button>
-          </a>
+          <Row className='align-items-center mt-4'>
+            <Col>
+              <a href={url} target='_blank' rel='noreferrer'>
+                <Button>READ MORE</Button>
+              </a>
+            </Col>
+            <Col className='bookmark'>
+              <IconButton
+                type={isBookmark ? 'addBookmark' : 'removeBookmark'}
+                onClick={onBookmarkHandler}
+              />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Card>

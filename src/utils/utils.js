@@ -41,7 +41,7 @@ export const setLocalStorage = (storageName, data) => {
 export const getLocalStorage = (storageName) => {
   if (window !== 'undefined' && localStorage.getItem(storageName))
     return JSON.parse(localStorage.getItem(storageName));
-  else return false;
+  else return storageName === 'bookmark' ? [] : false;
 };
 
 // Check empty data
@@ -67,7 +67,30 @@ export const searchFilter = (data, query) => {
   );
 };
 
+export const bookmarkFilter = (data, bookmarkList, id) => {
+  const isIdFound = getCurrentIndex(bookmarkList, id);
+
+  if (isIdFound === -1) {
+    const news = data.find((news) => news.id === id);
+    bookmarkList.push(news);
+    return bookmarkList;
+  } else {
+    bookmarkList.splice(isIdFound, 1);
+    return bookmarkList;
+  }
+};
+
+export const isBookmarkNews = (id) => {
+  const list = getLocalStorage('bookmark');
+  if (list.lenght === 0 || !list) return false;
+  else {
+    if (list.find((news) => news.id === id)) return true;
+    else return false;
+  }
+};
+
 ///////////////////////////////// OTHERS
+// check the target that correct element on click event
 export const checkButtonTarget = (target) => {
   const element = target.nodeName;
   if (element === 'BUTTON' || element === 'path' || element === 'svg')

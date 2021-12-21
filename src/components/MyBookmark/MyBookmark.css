@@ -1,4 +1,32 @@
-.news-box {
+.bookmark--title {
+  font-size: 2rem;
+}
+
+.img-box--bookmark {
+  padding: 0;
+}
+
+.img-sm--bookmark {
+  height: 10rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.info-box--bookmark h1 {
+  font-size: 1.4rem;
+}
+
+.bookmark-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.bookmark-btn button {
+  display: flex;
+  font-size: 2rem;
+}
+
+/* .news-box {
   border-radius: var(--border-radius--card);
   box-shadow: var(--shadow--card);
   overflow: hidden;
@@ -43,4 +71,4 @@
 .bookmark button {
   display: flex;
   font-size: 2.5rem;
-}
+} */

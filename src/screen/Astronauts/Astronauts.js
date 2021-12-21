@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAstronauts } from '../../redux/astronautSlice';
 import { ASTRONAUT_STATUS } from '../../utils/config';
-import { astronautsFilter, searchFilter } from '../../utils/utils';
+import {
+  astronautsFilter,
+  searchFilter,
+  setLocalStorage,
+} from '../../utils/utils';
 
 import Search from '../../components/Search/Search';
 import Filter from '../../components/Filter/Filter';
@@ -45,9 +49,9 @@ function Astronauts() {
         results = astronautsFilter(astronauts, selectedOption);
       }
     }
-
     setFinalResults(results);
-    localStorage.setItem('finalResults', JSON.stringify(results));
+
+    setLocalStorage('finalResults', results);
   }, [astronauts, selectedOption, query]);
 
   const onSubmitHander = (query) => {
