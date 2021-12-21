@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { MENU } from '../../utils/config';
 
 import { BsHexagonHalf } from 'react-icons/bs';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,10 +10,8 @@ import Nav from 'react-bootstrap/Nav';
 import './Navigation.css';
 
 function Navigation() {
-  const menu = ['spacecraft', 'astronauts', 'news'];
-
   const generateMenu = () => {
-    return menu.map((name, index) => {
+    return MENU.map((name, index) => {
       return (
         <Nav.Item key={index}>
           <NavLink

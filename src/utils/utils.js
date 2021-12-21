@@ -82,6 +82,7 @@ export const bookmarkFilter = (data, bookmarkList, id) => {
 
 export const isBookmarkNews = (id) => {
   const list = getLocalStorage('bookmark');
+
   if (list.lenght === 0 || !list) return false;
   else {
     if (list.find((news) => news.id === id)) return true;

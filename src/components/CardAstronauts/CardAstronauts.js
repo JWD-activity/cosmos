@@ -46,9 +46,11 @@ function CardAstronauts({ content }) {
               <Badge bg={statusClass}>{status.name}</Badge>
             </Col>
           </Row>
+
           <Row>
             <Card.Title>{name}</Card.Title>
           </Row>
+
           <Row>
             <h4 className='text-muted'>{agency.name}</h4>
           </Row>

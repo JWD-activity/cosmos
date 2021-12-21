@@ -13,7 +13,7 @@ function CardNews({ content, setSelectedNewsId, setIsChecked, bookmark }) {
   const [isBookmark, setIsBookmark] = useState(false);
 
   const { imageUrl, title, newsSite, updatedAt, url, id } = content;
-  let updatedDate = new Date(updatedAt).toLocaleString();
+  const updatedDate = new Date(updatedAt).toLocaleString();
 
   useEffect(() => {
     setIsBookmark(isBookmarkNews(id));

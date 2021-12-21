@@ -4,7 +4,7 @@ import BasicButton from '../../components/BasicButton/BasicButton.js';
 
 import './ImgCard.css';
 
-function ImgCard({ name, title, desc, children }) {
+function ImgCard({ name, desc }) {
   return (
     <Card className={`imgcard-container bg-${name} `}>
       <Card.Body className='imgcard-content'>

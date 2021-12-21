@@ -6,11 +6,11 @@ import {
   setLocalStorage,
 } from '../../utils/utils';
 
+import { BsStarFill } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
 import IconButton from '../IconButton/IconButton';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { BsStarFill } from 'react-icons/bs';
 import './MyBookmark.css';
 
 function Mybookmark({ setBookmark }) {
@@ -36,6 +36,7 @@ function Mybookmark({ setBookmark }) {
     if (list.length > 0) {
       return list.map((news) => {
         const { imageUrl, title, url, id } = news;
+
         return (
           <Row className='mb-3' key={id}>
             <Col md={3} sm={12} className='img-box--bookmark'>

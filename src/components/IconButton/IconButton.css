@@ -24,3 +24,7 @@ button:disabled {
 .btn-goback svg {
   margin-right: 0.5rem;
 }
+
+.addBookmark {
+  fill: #604be6;
+}

@@ -66,6 +66,7 @@ function SpacecraftDetails() {
       </div>
     );
   };
+
   const onPrevClickHanlder = (ev) => {
     if (checkButtonTarget(ev.target)) {
       const { selectedId } = navigateDetailPage('prev', spacecraft, id);

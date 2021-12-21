@@ -12,19 +12,22 @@ import { RiBookmark3Line } from 'react-icons/ri';
 import './IconButton.css';
 
 function IconButton({ type, onClick }) {
-  let icon;
   const location = useLocation();
   const { pathname } = location;
+
   const clickHanlder = () => {
     if (!onClick) return;
     onClick();
   };
 
+  let icon;
   if (type === 'wiki') icon = <FcWikipedia />;
   if (type === 'next') icon = <BsFillArrowRightSquareFill />;
   if (type === 'prev') icon = <BsFillArrowLeftSquareFill />;
-  if (type === 'addBookmark') icon = <RiBookmark3Fill />;
+  if (type === 'addBookmark')
+    icon = <RiBookmark3Fill className='addBookmark' />;
   if (type === 'removeBookmark') icon = <RiBookmark3Line />;
+
   if (type === 'goback') {
     if (pathname.includes('spacecraft')) {
       icon = (
