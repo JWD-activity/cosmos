@@ -17,58 +17,27 @@
   font-size: 1.4rem;
 }
 
-.bookmark-btn {
+.btn--addBookmark {
   display: flex;
   justify-content: flex-end;
 }
-.bookmark-btn button {
+.btn--addBookmark button {
   display: flex;
   font-size: 2rem;
 }
 
-/* .news-box {
-  border-radius: var(--border-radius--card);
-  box-shadow: var(--shadow--card);
-  overflow: hidden;
-}
-
-.img-box--news {
-  padding: 0;
-}
-
-.img-sm--news {
-  height: 16rem;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.info-box--news {
-  padding: 1.5rem 1rem;
-}
-
-.info-box--news * {
-  font-size: inherit;
-}
-
-.info-box--news .card-title {
-  font-size: 1.8rem;
-  margin: 1rem 0;
-}
-
-.info-box--news .card-subtitle {
-  margin: 1rem 0;
-}
-
-.updated {
-  font-weight: var(--fw--light);
-  margin: 1rem;
-}
-.bookmark {
+.btn--bookmark {
+  font-size: 1.6rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
 }
-.bookmark button {
-  display: flex;
-  font-size: 2.5rem;
-} */
+
+.star--bookmark {
+  color: #fcd774;
+}
+
+.info-box--bookmark {
+  font-size: 2rem;
+}

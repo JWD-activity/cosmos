@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Button from '../Button/Button';
+import BasicButton from '../BasicButton/BasicButton';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
 
@@ -53,7 +53,7 @@ function CardAstronauts({ content }) {
             <h4 className='text-muted'>{agency.name}</h4>
           </Row>
 
-          <Button>VIEW DETAILS</Button>
+          <BasicButton>VIEW DETAILS</BasicButton>
         </Card.Body>
       </Card>
     </Link>

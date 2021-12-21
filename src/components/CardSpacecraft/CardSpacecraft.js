@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
-import Button from '../Button/Button';
+import BasicButton from '../BasicButton/BasicButton';
 
 import './CardSpacecraft.css';
 
@@ -20,7 +20,7 @@ function CardSpacecraft({ content }) {
         />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Button>VIEW DETAILS</Button>
+          <BasicButton>VIEW DETAILS</BasicButton>
         </Card.Body>
       </Card>
     </Link>

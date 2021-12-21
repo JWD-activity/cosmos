@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button';
 import IconButton from '../IconButton/IconButton';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { BsStarFill } from 'react-icons/bs';
 import './MyBookmark.css';
 
 function Mybookmark({ setBookmark }) {
@@ -46,11 +47,11 @@ function Mybookmark({ setBookmark }) {
               <Row className='align-items-center mt-4'>
                 <Col>
                   <a href={url} target='_blank' rel='noreferrer'>
-                    <Button>READ MORE</Button>
+                    <Button variant='dark'>READ MORE</Button>
                   </a>
                 </Col>
                 <Col
-                  className='bookmark-btn'
+                  className='btn--addBookmark'
                   onClick={() => onRemoveHandler(id)}
                 >
                   <IconButton type='addBookmark' />
@@ -65,8 +66,8 @@ function Mybookmark({ setBookmark }) {
 
   return (
     <>
-      <Button variant='primary' onClick={handleShow}>
-        Launch
+      <Button variant='dark' onClick={handleShow} className='btn--bookmark'>
+        <BsStarFill className='star--bookmark me-2' /> Bookmark
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>

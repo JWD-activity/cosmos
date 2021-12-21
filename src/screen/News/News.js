@@ -73,18 +73,23 @@ function News() {
   return (
     <>
       <Row className='my-3 pt-4'>
-        <Col>
-          <Mybookmark setBookmark={setBookmark} />
-        </Col>
         <h1>News</h1>
         <h2>Check the latest spaceflight-related news.</h2>
         <Col md={6} sm={12}></Col>
         <Col md={6} sm={12}>
-          <Filter
-            options={NEWS_SITE}
-            onChange={setSelectedOption}
-            by='news site'
-          />
+          <Row className='flex-row-reverse'>
+            <Col>
+              <Filter
+                options={NEWS_SITE}
+                onChange={setSelectedOption}
+                by='news site'
+              />
+            </Col>
+
+            <Col>
+              <Mybookmark setBookmark={setBookmark} />
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Row className='px-2'>

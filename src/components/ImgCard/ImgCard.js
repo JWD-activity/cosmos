@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from '../../components/Button/Button.js';
+import BasicButton from '../../components/BasicButton/BasicButton.js';
 
 import './ImgCard.css';
 
@@ -10,7 +10,7 @@ function ImgCard({ name, title, desc, children }) {
       <Card.Body className='imgcard-content'>
         <h1>{name}</h1>
         <p>{desc}</p>
-        <Button>EXPLORE</Button>
+        <BasicButton>EXPLORE</BasicButton>
       </Card.Body>
     </Card>
   );

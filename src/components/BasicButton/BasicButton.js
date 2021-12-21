@@ -1,8 +1,8 @@
 import React from 'react';
-import './Button.css';
+import './BasicButton.css';
 
-function Button({ children }) {
+function BasicButton({ children }) {
   return <button className='btn-gradient'>{children}</button>;
 }
 
-export default Button;
+export default BasicButton;

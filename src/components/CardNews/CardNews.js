@@ -4,7 +4,7 @@ import { isBookmarkNews } from '../../utils/utils';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Button from '../Button/Button';
+import BasicButton from '../BasicButton/BasicButton';
 import IconButton from '../IconButton/IconButton';
 
 import './CardNews.css';
@@ -40,7 +40,7 @@ function CardNews({ content, setSelectedNewsId, setIsChecked, bookmark }) {
           <Row className='align-items-center mt-4'>
             <Col>
               <a href={url} target='_blank' rel='noreferrer'>
-                <Button>READ MORE</Button>
+                <BasicButton>READ MORE</BasicButton>
               </a>
             </Col>
             <Col className='bookmark'>
