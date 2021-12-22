@@ -27,4 +27,6 @@ button:disabled {
 
 .addBookmark {
   fill: #604be6;
+  font-size: 2.5rem;
+  align-self: flex-end;
 }
