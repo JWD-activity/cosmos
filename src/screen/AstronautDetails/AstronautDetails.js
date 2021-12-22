@@ -161,7 +161,11 @@ function AstronautsDetails() {
   return (
     <>
       {error ? (
-        <MessageAlert type='error' message={error} />
+        <MessageAlert type='error' message={error}>
+          <Link to='/astronauts'>
+            <strong className='back-btn'> Go back to Astronauts</strong>
+          </Link>
+        </MessageAlert>
       ) : (
         generateContent()
       )}

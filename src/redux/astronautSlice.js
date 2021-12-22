@@ -31,10 +31,12 @@ export const astronautSlice = createSlice({
     builder
       .addCase(fetchAstronauts.pending, (state, action) => {
         state.isLoading = true;
+        state.error = '';
       })
       .addCase(fetchAstronauts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.astronauts = action.payload;
+        state.error = '';
       })
       .addCase(fetchAstronauts.rejected, (state, action) => {
         state.isLoading = false;

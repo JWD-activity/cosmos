@@ -7,7 +7,7 @@ import { GiCancel } from 'react-icons/gi';
 
 import './MessageAlert.css';
 
-function MessageAlert({ type, message }) {
+function MessageAlert({ type, message, children }) {
   let icon;
 
   if (type === 'error') icon = <AiFillWarning className='alert-icon' />;
@@ -20,7 +20,7 @@ function MessageAlert({ type, message }) {
         type === 'error' ? 'danger' : type === 'info' ? 'success' : 'secondary'
       }
     >
-      {icon} {message}
+      {icon} {message} {children}
     </Alert>
   );
 }

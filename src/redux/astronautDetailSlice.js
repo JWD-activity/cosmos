@@ -25,9 +25,11 @@ export const astronautDetailSlice = createSlice({
     builder
       .addCase(fetchAstronautDetails.pending, (state, action) => {
         state.isLoading = true;
+        state.error = '';
       })
       .addCase(fetchAstronautDetails.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = '';
         state.astronautDetails = action.payload;
       })
       .addCase(fetchAstronautDetails.rejected, (state, action) => {

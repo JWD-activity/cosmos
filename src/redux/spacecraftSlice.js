@@ -31,9 +31,11 @@ export const spacecraftSlice = createSlice({
     builder
       .addCase(fetchSpacecraft.pending, (state, action) => {
         state.isLoading = true;
+        state.error = '';
       })
       .addCase(fetchSpacecraft.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = '';
         state.spacecraft = action.payload;
       })
       .addCase(fetchSpacecraft.rejected, (state, action) => {

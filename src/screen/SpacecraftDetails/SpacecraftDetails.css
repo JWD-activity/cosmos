@@ -19,6 +19,11 @@
   padding: 0;
 }
 
+.back-btn {
+  color: var(--error-color);
+  text-decoration: underline;
+}
+
 .page {
   text-align: center;
   background-color: var(--light-grey);

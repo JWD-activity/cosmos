@@ -25,10 +25,12 @@ export const spaceDetailSlice = createSlice({
     builder
       .addCase(fetchSpaceDetails.pending, (state, action) => {
         state.isLoading = true;
+        state.error = '';
       })
       .addCase(fetchSpaceDetails.fulfilled, (state, action) => {
         state.isLoading = false;
         state.spacecraftDetails = action.payload;
+        state.error = '';
       })
       .addCase(fetchSpaceDetails.rejected, (state, action) => {
         state.isLoading = false;

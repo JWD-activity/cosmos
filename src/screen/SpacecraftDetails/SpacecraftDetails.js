@@ -159,7 +159,11 @@ function SpacecraftDetails() {
   return (
     <>
       {error ? (
-        <MessageAlert type='error' message={error} />
+        <MessageAlert type='error' message={error}>
+          <Link to='/spacecraft'>
+            <strong className='back-btn'> Go back to Spacecraft</strong>
+          </Link>
+        </MessageAlert>
       ) : (
         generateContent()
       )}

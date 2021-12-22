@@ -22,10 +22,12 @@ export const newsSlice = createSlice({
     builder
       .addCase(fetchNews.pending, (state, action) => {
         state.isLoading = true;
+        state.error = '';
       })
       .addCase(fetchNews.fulfilled, (state, action) => {
         state.isLoading = false;
         state.news = action.payload;
+        state.error = '';
       })
       .addCase(fetchNews.rejected, (state, action) => {
         state.isLoading = false;
