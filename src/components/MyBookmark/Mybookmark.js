@@ -7,6 +7,7 @@ import {
 } from '../../utils/utils';
 
 import { BsStarFill } from 'react-icons/bs';
+import MessageAlert from '../../components/MessageAlert/MessageAlert';
 import Button from 'react-bootstrap/Button';
 import IconButton from '../IconButton/IconButton';
 import Row from 'react-bootstrap/Row';
@@ -62,6 +63,8 @@ function Mybookmark({ setBookmark }) {
           </Row>
         );
       });
+    } else {
+      return <MessageAlert type='info' message='You have no bookmarks yet.' />;
     }
   };
 
