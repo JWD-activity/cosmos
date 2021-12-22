@@ -112,7 +112,7 @@ function SpacecraftDetails() {
                 <>
                   <Col>
                     <Row>
-                      <Col lg={6}>
+                      <Col md={4}>
                         <p className='page'>
                           <strong>{currentPage}</strong> / {totalPage}
                         </p>
@@ -124,7 +124,7 @@ function SpacecraftDetails() {
                         />
                       </Col>
 
-                      <Col lg={6}>
+                      <Col md={8}>
                         <h2>{name}</h2>
                         {generateBadge()}
                         {generateInfo()}

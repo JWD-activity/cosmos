@@ -87,7 +87,7 @@ function Astronauts() {
               ''
             )}
             {!isLoading && query && filterResults.length === 0 ? (
-              <MessageAlert type='error' message='Sorry No results found.' />
+              <MessageAlert type='error' message='No results found.' />
             ) : (
               ''
             )}
