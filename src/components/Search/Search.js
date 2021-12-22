@@ -17,7 +17,8 @@ function Search({ onQueryHandler }) {
 
   const submitHandler = (ev) => {
     ev.preventDefault();
-    if (searchText.trim()) onQueryHandler(searchText.toLowerCase());
+    const query = searchText.trim();
+    if (query) onQueryHandler(query.toLowerCase());
   };
 
   const onClearHandler = () => {
