@@ -21,7 +21,7 @@
 - Create **`CardNews, CardSpacecraft and CardAstronauts`** components that display Thumbnails.
 - Create a **`CardCarousel`** component that displays a slideshow.
 - Implement a function that **`allows users to properly navigate to a new router page.`**
-- Implement a  function that **`allows users to search astronauts by using a filter or entering astronauts' names.**
+- Implement a  function that **`allows users to search astronauts by using a filter or entering astronauts' name.`**
 - Implement a **`bookmark`** function that **`allows users to keep favourite news articles.`**
 - Implement a **`caching system with localStorage (when pages are refreshed, still data remain and display on the screen.)`**
 
