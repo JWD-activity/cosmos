@@ -94,7 +94,6 @@ function AstronautsDetails() {
 
   const generateContent = () => {
     const { profile_image, name, wiki } = data;
-
     return (
       <>
         <Row className='astronaut-details'>
@@ -151,7 +150,7 @@ function AstronautsDetails() {
             className='col-btn text-end d-flex align-items-center'
             onClick={onNextClickHanlder}
           >
-            {currentPage < totalPage && <IconButton type='next' />}
+            {currentPage < totalPage ? <IconButton type='next' /> : ''}
           </Col>
         </Row>
       </>
@@ -163,7 +162,10 @@ function AstronautsDetails() {
       {error ? (
         <MessageAlert type='error' message={error}>
           <Link to='/astronauts'>
-            <strong className='back-btn'> Go back to Astronauts</strong>
+            <strong className='back-btn--astroDetails'>
+              {' '}
+              Go back to Astronauts
+            </strong>
           </Link>
         </MessageAlert>
       ) : (

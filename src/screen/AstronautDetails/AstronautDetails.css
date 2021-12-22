@@ -10,7 +10,7 @@
   object-position: top;
 }
 
-.back-btn {
+.back-btn--astroDetails {
   color: var(--error-color);
   text-decoration: underline;
 }

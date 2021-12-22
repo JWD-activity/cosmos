@@ -30,7 +30,7 @@ function Home() {
     return contents.map((content) => {
       const { name, desc, id } = content;
       return (
-        <Col lg={4} md={12} className='p-5' key={id}>
+        <Col lg={4} md={12} className='p-5 col--home' key={id}>
           <NavLink
             to={`/${name}`}
             className={({ isActive }) => (isActive ? 'active-menu' : '')}

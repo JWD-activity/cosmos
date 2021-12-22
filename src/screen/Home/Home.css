@@ -1,0 +1,4 @@
+.col--home a {
+  text-decoration: none;
+  color: var(--fs-color--light);
+}
