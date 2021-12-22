@@ -25,7 +25,26 @@
 - API
   - The Space Devs API https://lldev.thespacedevs.com/2.2.0/swagger
   - Spaceflight News API https://api.spaceflightnewsapi.net/v3/documentation#/Article
-
-
+  
 ### Things I applied
+- JavaScript 
+  - Array Methods:` map, filter, includes, find, findIndex, push, splice, slice`
+  - String Methods: `trim, toLowerCase`
+  - Date Methods: `toLocaleDateString`
+
+- React
+  - `Founction components`
+  - `Conditional Rendering` of Components
+  - `Props`: Passing data between components
+  - `Hooks: useState, useEffect`
+
+- React Router
+  - `Router: HashRouter`
+  - `Hooks: useParams, useLocation, useNavigate`
+
+- Redux/Redux Toolkit
+  - `Store: configureStore` 
+  - `Reducer: createSlice`
+  - `Fetching data: createAsyncThunk`
+  - `Hooks: useSelector,useDispatch`
 ### Screenshot
