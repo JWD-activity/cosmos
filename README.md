@@ -77,6 +77,7 @@
 - Astronauts
 
 ![astronauts-sm](https://user-images.githubusercontent.com/83196262/147014759-f5dc35a2-244d-4cda-85e7-215fe53f30d4.png)
+![astronautsDetails-sm](https://user-images.githubusercontent.com/83196262/147167633-2a7b0cf8-0911-42ca-b2c5-a696d186fab2.png)
 
 - Astronauts(Filter)
 
