@@ -7,7 +7,23 @@
 
 
 ### The challenge
-
+- Create a **`Home`** component that displays the main home page of the cosmos app.
+- Create a **`Spacecraft`** component that displays a list of spacecraft.
+- Create a **`SpacecraftDetails`** component that displays details of a spacecraft.
+- Create an **`Astronauts`** component that displays a list of astronauts. 
+- Create an **`AstronautsDetails`** component that displays details of a selected astronaut.
+- Create a **`News`** component that displays a list of latest spaceflight-related news.
+- Create an **`NotFound`** component that notifies the user of an page not found error.
+- Create a **`Search`** component that displays the search form.
+- Create a **`Filter`** component that displays multiple options of the filter.
+- Create a **`Mybookmark`** component that displays a list of bookmark news.
+- Create a **`MessageAlert`** component that notifies the user of errors or information.
+- Create **`CardNews, CardSpacecraft and CardAstronauts`** components that display Thumbnails.
+- Create a **`CardCarousel`** component that displays a slideshow.
+- Implement a function that **`allows users to properly navigate to a new router page.`**
+- Implement a  function that **`allows users to search astronauts by using a filter or entering astronauts' names.**
+- Implement a **`bookmark`** function that **`allows users to keep favourite news articles.`**
+- Implement a **`caching system with localStorage (when pages are refreshed, still data remain and display on the screen.)`**
 
 ## My process
 ### Built with
