@@ -4,7 +4,6 @@ import { fetchNews } from '../../redux/newsSlice';
 import { NEWS_SITE } from '../../utils/config';
 import {
   newsFilter,
-  bookmarkFilter,
   setLocalStorage,
   getLocalStorage,
 } from '../../utils/utils';
@@ -23,8 +22,6 @@ function News() {
   const isLoading = useSelector((state) => state.news.isLoading);
   const news = useSelector((state) => state.news.news);
 
-  const [selectedNewsId, setSelectedNewsId] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
   const [bookmark, setBookmark] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [results, setResults] = useState([]);
@@ -32,21 +29,11 @@ function News() {
   const list = getLocalStorage('bookmark');
 
   useEffect(() => {
+    dispatch(fetchNews());
+
     if (list) setBookmark(list);
     setLocalStorage('bookmark', list);
   }, []);
-
-  useEffect(() => {
-    dispatch(fetchNews());
-  }, []);
-
-  useEffect(() => {
-    if (selectedNewsId) {
-      const newBookmark = bookmarkFilter(news, bookmark, selectedNewsId);
-      setBookmark(newBookmark);
-      setLocalStorage('bookmark', newBookmark);
-    }
-  }, [selectedNewsId, isChecked]);
 
   useEffect(() => {
     setResults(newsFilter(news, selectedOption));
@@ -58,9 +45,8 @@ function News() {
         <CardNews
           key={content.id}
           content={content}
-          setSelectedNewsId={setSelectedNewsId}
-          setIsChecked={setIsChecked}
           bookmark={bookmark}
+          setBookmark={setBookmark}
         />
       );
     });

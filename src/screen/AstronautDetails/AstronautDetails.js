@@ -42,7 +42,7 @@ function AstronautsDetails() {
   useEffect(() => {
     setCurrentPage(getCurrentIndex(filterResults, id) + 1);
     dispatch(fetchAstronautDetails(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   const generateBadge = (name) => {
     const status = name.toLowerCase();

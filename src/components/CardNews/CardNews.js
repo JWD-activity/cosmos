@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { isBookmarkNews } from '../../utils/utils';
+import {
+  isBookmarkNews,
+  getLocalStorage,
+  setLocalStorage,
+  bookmarkFilter,
+} from '../../utils/utils';
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BasicButton from '../BasicButton/BasicButton';
 import IconButton from '../IconButton/IconButton';
-
+import { useSelector } from 'react-redux';
 import './CardNews.css';
 
-function CardNews({ content, setSelectedNewsId, setIsChecked, bookmark }) {
-  const [isBookmark, setIsBookmark] = useState(false);
+function CardNews({ content, bookmark, setBookmark }) {
+  const news = useSelector((state) => state.news.news);
 
   const { imageUrl, title, newsSite, updatedAt, url, id } = content;
   const updatedDate = new Date(updatedAt).toLocaleString();
+
+  const [isBookmark, setIsBookmark] = useState(false);
+
+  useEffect(() => {
+    const list = getLocalStorage('bookmark');
+    if (!list) return;
+    else setBookmark(list);
+  }, []);
 
   useEffect(() => {
     setIsBookmark(isBookmarkNews(id));
@@ -21,8 +34,12 @@ function CardNews({ content, setSelectedNewsId, setIsChecked, bookmark }) {
 
   const onBookmarkHandler = () => {
     setIsBookmark(!isBookmark);
-    setSelectedNewsId(id);
-    setIsChecked(!isBookmark);
+
+    if (id) {
+      const newBookmark = bookmarkFilter(news, getLocalStorage('bookmark'), id);
+      setLocalStorage('bookmark', newBookmark);
+      setBookmark(newBookmark);
+    }
   };
 
   return (
